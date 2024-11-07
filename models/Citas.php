@@ -42,10 +42,10 @@ function insertarCitas($paciente, $doctor, $motivo, $estado, $dia, $hora) {
   $sqlQuery = "INSERT INTO citas (paciente, doctor, motivo, estado, hora, dia)
    VALUES ('$paciente', '$doctor', '$motivo', '$estado', '$dia', '$hora')";
 
-  $query = $pdo->$pdo->prepare($sqlQuery);
+  $query = $pdo->prepare($sqlQuery);
   $query->execute();
   
-  return $query->fetch_all(PDO::FETCH_ASSOC);
+  return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
 function eliminarCitas($id) {
@@ -70,7 +70,7 @@ function eliminarCitas($id) {
     return $query->fetch_all(PDO::FETCH_ASSOC);
 }
 
-function modificarCitas($id, $paciente, $doctor, $motivo, $estado, $dia, $hora ) {
+function actualizarCita($id, $paciente, $doctor, $motivo, $estado, $dia, $hora ) {
     // Variables globales en config.inc.
     $dsn = DB_DSN;
     $usuario = DB_USER;
