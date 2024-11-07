@@ -8,6 +8,8 @@ $dbname = 'clinica'; // Nombre de la base de datos.
 $username = 'root'; // Nombre de usuario de la base de datos.
 $passwd = ''; // Contraseña de la base de datos
 
+$kitFontAwesome = ''; // El enlace que consigues al hacer un kit de Font Awesome
+
 // Definición de variables globales
 define('DB_DSN', $DBType . ':host=' . $ip . ';port=' . $port . ';dbname=' . $dbname);
 define('DB_USER', $username);
