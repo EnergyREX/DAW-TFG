@@ -3,9 +3,35 @@ head {
 }
 
 body {
+    display: grid;
+    margin: 0px;
+    grid-template-columns: (20%, 80%);
+}
+
+.data {
     display: flex;
     flex-direction: column;
-    margin: 0;
+    grid-column: 2;
+    margin-top: 2rem;
+    margin-right: 10rem;
+}
+
+.table__data {
+    background-color: #d7d7d7;
+    padding: 1rem;
+}
+
+.data__table {
+    font-size: 1.125rem;
+    
+}
+
+.data__piece {
+    display: table-cell;
+    text-align: center;  
+    padding: 0px;
+    margin: 0px;
+    padding: 1rem;
 }
 
 .modal__insert {

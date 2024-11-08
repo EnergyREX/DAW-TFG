@@ -25,9 +25,10 @@
   <?php require './componentes/sidebar.php' ?>
 
 
+  <div class="data">
   <div><input type="text"> <button>Buscar</button> <button>Filtro</button> <button class="insert__btn">+</button> </div>
-  <table class="datos__tablas">
-    <tr>
+  <table class="data__table">
+    <tr class="table__header">
       <th>ID Cita</th>
       <th>Paciente</th>
       <th>Doctor</th>
@@ -40,7 +41,7 @@
     </tr>
     <?php mostrarCitas(); ?>
   </table>
-
+  </div>
   <script src="citas.js"></script>
 </body>
 </html>

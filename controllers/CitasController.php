@@ -7,16 +7,16 @@ function mostrarCitas() {
   $datos = obtenerCitas();
 
   foreach ($datos as $dato) {
-    echo '<tr>';
-    echo '<td>'.$dato['id'].'</td>';
-    echo '<td>'.$dato['paciente'].'</td>';
-    echo '<td>'.$dato['doctor'].'</td>';
-    echo '<td>'.$dato['estado'].'</td>';
-    echo '<td>'.$dato['motivo'].'</td>';
-    echo '<td>'.$dato['dia'].'</td>';
-    echo '<td>'.$dato['hora'].'</td>';
-    echo "<td><button class='update__btn' data-id='".$dato['id']."'><i class='fa-solid fa-pen-to-square'></i></button>";
-    echo "<td><button class='delete__btn' data-id='".$dato['id']."'><i class='fa-solid fa-trash'></i></button>";
+    echo '<tr class="table__data">';
+        echo '<td class="data__piece">'.$dato['id'].'</td>';
+        echo '<td class="data__piece">'.$dato['paciente'].'</td>';
+        echo '<td class="data__piece">'.$dato['doctor'].'</td>';
+        echo '<td class="data__piece">'.$dato['estado'].'</td>';
+        echo '<td class="data__piece">'.$dato['motivo'].'</td>';
+        echo '<td class="data__piece">'.$dato['dia'].'</td>';
+        echo '<td class="data__piece">'.$dato['hora'].'</td>';
+        echo "<td><button class='update__btn' data-id='".$dato['id']."'><i class='fa-solid fa-pen-to-square'></i></button>";
+        echo "<td><button class='delete__btn' data-id='".$dato['id']."'><i class='fa-solid fa-trash'></i></button>";
     echo "</tr>";
   }
 }

@@ -1,5 +1,5 @@
 <?php 
-require_once('../models/Citas.php');
+require_once('../models/Doctores.php');
 
 $method = isset($_POST['method']) ? $_POST['method'] : null;
 
@@ -23,36 +23,40 @@ function mostrarDoctores() {
   }
 }
 
-function nuevaCita() {
-    $paciente = isset($_POST['paciente']) ? $_POST['paciente'] : null;
-    $doctor = isset($_POST['doctor']) ? $_POST['doctor'] : null;
-    $motivo = isset($_POST['motivo']) ? $_POST['motivo'] : null;
-    $estado = isset($_POST['estado']) ? $_POST['estado'] : null;
-    $dia = isset($_POST['dia']) ? $_POST['dia'] : null;
-    $hora = isset($_POST['hora']) ? $_POST['hora'] : null;
+function nuevoDoctor() {
+    $dni = isset($_POST['dni']) ? $_POST['dni'] : null;
+    $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
+    $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : null;
+    $direccion = isset($_POST['direccion']) ? $_POST['direccion'] : null;
+    $telefono = isset($_POST['telefono']) ? $_POST['telefono'] : null;
+    $email = isset($_POST['email']) ? $_POST['email'] : null;
+    $especialidad = isset($_POST['especialidad']) ? $_POST['especialidad'] : null;
+    $fecha_union = isset($_POST['fecha_union']) ? $_POST['fecha_union'] : null;
+    $disponibilidad = isset($_POST['disponibilidad']) ? $_POST['disponibilidad'] : null;
 
-
-        insertarCitas($paciente, $doctor, $motivo, $estado, $dia, $hora);
+        insertarDoctor($dni, $nombre, $apellidos, $direccion, $telefono, $email, 
+        $especialidad, $fecha_union, $disponibilidad);
     
 }
 
-function modificarCita() {
-    $id = isset($_POST['id']) ? $_POST['id'] : null;
-    $paciente = isset($_POST['paciente']) ? $_POST['paciente'] : null;
-    $doctor = isset($_POST['doctor']) ? $_POST['doctor'] : null;
-    $motivo = isset($_POST['motivo']) ? $_POST['motivo'] : null;
-    $estado = isset($_POST['estado']) ? $_POST['estado'] : null;
-    $dia = isset($_POST['dia']) ? $_POST['dia'] : null;
-    $hora = isset($_POST['hora']) ? $_POST['hora'] : null;
+function modificarDoctor() {
+    $dni = isset($_POST['dni']) ? $_POST['dni'] : null;
+    $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
+    $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : null;
+    $direccion = isset($_POST['direccion']) ? $_POST['direccion'] : null;
+    $telefono = isset($_POST['telefono']) ? $_POST['telefono'] : null;
+    $email = isset($_POST['email']) ? $_POST['email'] : null;
+    $especialidad = isset($_POST['especialidad']) ? $_POST['especialidad'] : null;
+    $fecha_union = isset($_POST['fecha_union']) ? $_POST['fecha_union'] : null;
+    $disponibilidad = isset($_POST['disponibilidad']) ? $_POST['disponibilidad'] : null;
 
-    obtenerCitas();
-
-    actualizarCita($id, $paciente, $doctor, $motivo, $estado, $dia, $hora);
+    actualizarDoctor($dni, $nombre, $apellidos, $direccion, $telefono, $email, 
+    $especialidad, $fecha_union, $disponibilidad);
 }
 
-function eliminarCita() {
+function eliminarDoctor() {
     $id = isset($_POST['id']) ? (int) $_POST['id'] : null;
-    eliminarCitas($id);
+    eliminarDoctor($id);
 }
 
 if ($method == "insert") {

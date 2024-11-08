@@ -24,7 +24,8 @@ function obtenerDoctores() {
   return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
-function insertarCitas($paciente, $doctor, $motivo, $estado, $dia, $hora) {
+function insertarDoctor($dni, $nombre, $apellidos, $direccion, $telefono, 
+                        $email, $especialidad, $fecha_union, $disponibilidad) {
   // Variables globales en config.inc.
   $dsn = DB_DSN;
   $usuario = DB_USER;
@@ -36,12 +37,11 @@ function insertarCitas($paciente, $doctor, $motivo, $estado, $dia, $hora) {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   } catch (PDOException $e) {
     echo "Error de conexión. " . $e->getMessage();
-  }
+  } 
 
-  $hora = "$hora:00"; 
-
-  $sqlQuery = "INSERT INTO citas (paciente, doctor, motivo, estado, dia, hora)
-   VALUES ('$paciente', '$doctor', '$motivo', '$estado', '$dia', '$hora')";
+  $sqlQuery = "INSERT INTO doctores (dni, nombre, apellidos, direccion, telefono, email, especialidad, fecha_union, disponibilidad)
+   VALUES ('$dni', '$nombre', '$apellidos', '$direccion', '$telefono', '$email', 
+          '$especialidad', '$fecha_union', '$disponibilidad')";
 
   $query = $pdo->prepare($sqlQuery);
   $query->execute();
@@ -49,7 +49,7 @@ function insertarCitas($paciente, $doctor, $motivo, $estado, $dia, $hora) {
   return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
-function eliminarCitas($id) {
+function eliminarDoctor($dni) {
     // Variables globales en config.inc.
     $dsn = DB_DSN;
     $usuario = DB_USER;
@@ -63,13 +63,14 @@ function eliminarCitas($id) {
       echo "Error de conexión. " . $e->getMessage();
     }
   
-    $sqlQuery = "DELETE FROM citas WHERE id = $id";
+    $sqlQuery = "DELETE FROM doctores WHERE dni = $dni";
 
     $query = $pdo->prepare($sqlQuery);
     $query->execute();
 }
 
-function actualizarCita($id, $paciente, $doctor, $motivo, $estado, $dia, $hora ) {
+function actualizarDoctor($dni, $nombre, $apellidos, $direccion, $telefono, 
+                          $email, $especialidad, $fecha_union, $disponibilidad) {
     // Variables globales en config.inc.
     $dsn = DB_DSN;
     $usuario = DB_USER;
@@ -82,27 +83,19 @@ function actualizarCita($id, $paciente, $doctor, $motivo, $estado, $dia, $hora )
     } catch (PDOException $e) {
       echo "Error de conexión. " . $e->getMessage();
     }
-  
-    /* Ejemplo:
-    UPDATE citas SET 
-    paciente = '45678901D', 
-    doctor = '34567890C', 
-    motivo = 'Lobotomía', 
-    estado = 'Cancelada' 
-    dia = '2024-11-30' 
-    hora = '21:00:00' 
-    WHERE id = 1;
-    */
 
     $sqlQuery = 
     "UPDATE citas SET 
-    paciente = '$paciente', 
-    doctor = '$doctor', 
-    motivo = '$motivo', 
-    estado = '$estado', 
-    dia = '$dia', 
-    hora = '$hora' 
-    WHERE id = $id;";
+    dni = '$dni', 
+    nombre = '$nombre', 
+    apellidos = '$apellidos', 
+    direccion = '$direccion', 
+    telefono = '$telefono', 
+    email = '$email',
+    especialidad = '$especialidad',
+    fecha_union = '$fecha_union',
+    disponibilidad = '$disponibilidad' 
+    WHERE id = $dni;";
 
     $query = $pdo->prepare($sqlQuery);
     $query->execute();
