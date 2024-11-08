@@ -22,7 +22,6 @@
   renderModalUpdate();
   renderDeleteModal();
 ?>
-  <h1>Citas</h1>
   <?php require './componentes/sidebar.php' ?>
 
 

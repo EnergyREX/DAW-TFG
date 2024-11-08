@@ -1,3 +1,7 @@
+head {
+    display: none;
+}
+
 body {
     margin: 0;
 }
@@ -25,6 +29,7 @@ body {
     justify-self: center;
     border-radius: 12px;
 }
+
 .close__btn {
     display: flex;
     align-items: center;
@@ -40,6 +45,40 @@ body {
 
 .close__btn:hover {
     background-color: rgb(245, 45, 45);
+    color: #fff;
+    transition: 0.35s;
+}
+
+.form__btn-update {
+    border: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+
+    border-radius: 6px;
+    background-color: rgb(59 130 246);
+}
+
+.form__btn-update:hover {
+    background-color: rgb(37 99 235);
+    color: #fff;
+    transition: 0.35s;
+}
+
+.form__btn-delete {
+    border: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+
+    border-radius: 6px;
+    background-color: rgb(239 68 68);
+}
+
+.form__btn-delete:hover {
+    background-color: rgb(185 28 28);
     color: #fff;
     transition: 0.35s;
 }

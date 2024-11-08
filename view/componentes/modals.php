@@ -68,8 +68,7 @@ function renderModalUpdate() {
             <input class="form__input" type="time" name="hora">
             
             <div class="form__btns">
-                <button class="form__btn-submit" type="submit">Insertar</button>
-                <button class="form__btn-cancel">Cancelar</button>
+                <button class="form__btn-update" type="submit">Update</button>
             </div>
             
             <input type="hidden" value="update" name="method">
@@ -86,10 +85,9 @@ function renderDeleteModal() {
       <h1 class="modal__title-delete">¿Seguro que quieres eliminar esta entrada?</h1>
     <form class="modal__form" method="POST" action="./citas.php">
       <div class="form__btns">
-      <button class="form__btn-submit" type="submit">Sí</button>
+      <button class="form__btn-delete" type="submit">Eliminar</button>
       <input type="hidden" value="delete" name="method">
       <input type="hidden" value="" name="id" id="deleteId">
-      <button class="form__btn-cancel">No</button>
       </div>
     </form>
     </div>

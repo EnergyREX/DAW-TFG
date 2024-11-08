@@ -14,4 +14,5 @@ $kitFontAwesome = ''; // El enlace que consigues al hacer un kit de Font Awesome
 define('DB_DSN', $DBType . ':host=' . $ip . ';port=' . $port . ';dbname=' . $dbname);
 define('DB_USER', $username);
 define('DB_PASS', $passwd);
+define('FA6_URL', $kitFontAwesome);
 ?>

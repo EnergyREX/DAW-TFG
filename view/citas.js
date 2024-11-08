@@ -28,15 +28,19 @@ closeBtns.forEach(cBtn => {
     })
 })
 
-cancelBtns.forEach(cBtn => {
-    cBtn.addEventListener("click", () =>  {
-        insertModal.style.display = "none";
-        isOpenInsert = false;
-      
-        updateModal.style.display = "none"
-        isOpenUpdate = false;
-    })
-})
+document.addEventListener('DOMContentLoaded', () => {
+  const cancelBtn = document.querySelector('.form__btn-cancel');
+  
+  if (cancelBtn) {
+    cancelBtn.addEventListener('click', (event) => {
+      event.preventDefault(); // Previene el envío del formulario
+      // Aquí puedes agregar cualquier otra lógica adicional, como cerrar el modal
+      console.log("Cancel button clicked. Preventing form submission.");
+    });
+  }
+});
+
+
 
 btnInsert.addEventListener("click", () => {
   if (!isOpenInsert) {
