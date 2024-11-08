@@ -3,20 +3,22 @@ require_once('../models/Citas.php');
 
 $method = isset($_POST['method']) ? $_POST['method'] : null;
 
-function mostrarCitas() {
-  $datos = obtenerCitas();
+function mostrarDoctores() {
+  $datos = obtenerDoctores();
 
   foreach ($datos as $dato) {
     echo '<tr>';
-    echo '<td>'.$dato['id'].'</td>';
-    echo '<td>'.$dato['paciente'].'</td>';
-    echo '<td>'.$dato['doctor'].'</td>';
-    echo '<td>'.$dato['estado'].'</td>';
-    echo '<td>'.$dato['motivo'].'</td>';
-    echo '<td>'.$dato['dia'].'</td>';
-    echo '<td>'.$dato['hora'].'</td>';
-    echo "<td><button class='update__btn' data-id='".$dato['id']."'><i class='fa-solid fa-pen-to-square'></i></button>";
-    echo "<td><button class='delete__btn' data-id='".$dato['id']."'><i class='fa-solid fa-trash'></i></button>";
+    echo '<td>'.$dato['dni'].'</td>';
+    echo '<td>'.$dato['nombre'].'</td>';
+    echo '<td>'.$dato['apellidos'].'</td>';
+    echo '<td>'.$dato['direccion'].'</td>';
+    echo '<td>'.$dato['telefono'].'</td>';
+    echo '<td>'.$dato['email'].'</td>';
+    echo '<td>'.$dato['especialidad'].'</td>';
+    echo '<td>'.$dato['fecha_union'].'</td>';
+    echo '<td>'.$dato['disponibilidad'].'</td>';
+    echo "<td><button class='update__btn' data-id='".$dato['dni']."'><i class='fa-solid fa-pen-to-square'></i></button>";
+    echo "<td><button class='delete__btn' data-id='".$dato['dni']."'><i class='fa-solid fa-trash'></i></button>";
     echo "</tr>";
   }
 }
@@ -30,7 +32,7 @@ function nuevaCita() {
     $hora = isset($_POST['hora']) ? $_POST['hora'] : null;
 
 
-    insertarCitas($paciente, $doctor, $motivo, $estado, $dia, $hora);
+        insertarCitas($paciente, $doctor, $motivo, $estado, $dia, $hora);
     
 }
 

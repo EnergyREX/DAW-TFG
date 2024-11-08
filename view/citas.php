@@ -1,6 +1,6 @@
 <?php require_once '../controllers/CitasController.php' ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +26,7 @@
 
 
   <div><input type="text"> <button>Buscar</button> <button>Filtro</button> <button class="insert__btn">+</button> </div>
-  <table>
+  <table class="datos__tablas">
     <tr>
       <th>ID Cita</th>
       <th>Paciente</th>

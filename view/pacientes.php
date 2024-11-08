@@ -7,8 +7,8 @@
 </head>
 <body>
   <h1>Pacientes</h1>
-  <?php require './componentes/sidebar.php' ?>
+  <?php require '../componentes/sidebar.php' ?>
 
-  <?php require './componentes/footer.php' ?>
+  <?php require '../componentes/footer.php' ?>
 </body>
 </html>

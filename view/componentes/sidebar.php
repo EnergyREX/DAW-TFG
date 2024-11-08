@@ -1,7 +1,7 @@
 <?php 
 
 echo (
-  '  <sidebar>
+  '<sidebar>
     <ul>
       <li><a href="./index.php">Home</a></li>
       <li><a href="./pacientes.php">Pacientes</a></li>

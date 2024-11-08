@@ -2,7 +2,7 @@
 
 require_once('../config/config.inc.php');
 
-function obtenerCitas() {
+function obtenerDoctores() {
   // Variables globales en config.inc.
   $dsn = DB_DSN;
   $usuario = DB_USER;
@@ -16,7 +16,7 @@ function obtenerCitas() {
     echo "Error de conexión. " . $e->getMessage();
   }
 
-  $sqlQuery = "SELECT * FROM citas";
+  $sqlQuery = "SELECT * FROM doctores";
   
   $query = $pdo->prepare($sqlQuery);
   $query->execute();
