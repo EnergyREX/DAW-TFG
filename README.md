@@ -8,3 +8,9 @@
 ![MySQL](https://img.shields.io/badge/MySQL-gray?logo=mysql)
 
 El proyecto tratará de un software de gestión de clínicas, donde, se tendrán de distintos roles.
+
+## Algunas cosas por hacer:
+
+* [] Ordenar la carpeta de Vista.
+* [] Dividir los archivos CSS.
+* [] Hacer las consultas SQL seguras.

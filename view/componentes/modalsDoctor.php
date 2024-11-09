@@ -5,7 +5,7 @@ function renderModalInsert() {
     <div class="modal__content">
         <h1 class="modal__title">Insertar un nuevo dato</h1>
         <button class="close__btn"><i class="fa-solid fa-x"></i></button>
-        <form class="modal__form" action="./citas.php" method="post">
+        <form class="modal__form" action="./doctores.php" method="post">
             <label class="form__label" for="paciente">Paciente</label>
             <input class="form__input" type="text" name="paciente">
             
@@ -30,7 +30,6 @@ function renderModalInsert() {
             
             <div class="form__btns">
                 <button class="form__btn-submit" type="submit">Insertar</button>
-                <button class="form__btn-cancel">Cancelar</button>
             </div>
             
             <input type="hidden" value="insert" name="method">
@@ -44,7 +43,7 @@ function renderModalUpdate() {
         <div class="modal__content">
             <h1 class="modal__title">Insertar un nuevo dato</h1>
             <button class="close__btn"><i class="fa-solid fa-x"></i></button>
-            <form class="modal__form" action="./citas.php" method="post">
+            <form class="modal__form" action="./doctores.php" method="post">
                 <label class="form__label" for="paciente">Paciente</label>
                 <input class="form__input" type="text" name="paciente">
                 
@@ -83,11 +82,11 @@ function renderDeleteModal() {
     <div class="modal__content">
       <button class="close__btn"><i class="fa-solid fa-x"></i></button>  
       <h1 class="modal__title-delete">¿Seguro que quieres eliminar esta entrada?</h1>
-    <form class="modal__form" method="POST" action="./citas.php">
+    <form class="modal__form" method="POST" action="./doctores.php">
       <div class="form__btns">
       <button class="form__btn-delete" type="submit">Eliminar</button>
-      <input type="hidden" value="delete" name="method">
-      <input type="hidden" value="" name="id" id="deleteId">
+        <input type="hidden" value="delete" name="method">
+        <input type="hidden" value="" name="id" id="deleteId">
       </div>
     </form>
     </div>

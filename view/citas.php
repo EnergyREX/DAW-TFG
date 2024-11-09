@@ -17,7 +17,7 @@
 </head>
 <body>
 <?php 
-  require "./componentes/modals.php";
+  require "./componentes/modalsCitas.php";
   renderModalInsert();
   renderModalUpdate();
   renderDeleteModal();
@@ -26,7 +26,7 @@
 
 
   <div class="data">
-  <div><input type="text"> <button>Buscar</button> <button>Filtro</button> <button class="insert__btn">+</button> </div>
+  <div class="data__control"><input type="text"> <button>Buscar</button> <button>Filtro</button> <button class="insert__btn"><i class="fa-solid fa-plus"></i></button> </div>
   <table class="data__table">
     <tr class="table__header">
       <th>ID Cita</th>
@@ -42,6 +42,6 @@
     <?php mostrarCitas(); ?>
   </table>
   </div>
-  <script src="citas.js"></script>
+  <script src="./js/citas.js"></script>
 </body>
 </html>

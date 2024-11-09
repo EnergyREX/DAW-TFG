@@ -1,10 +1,10 @@
 <?php require_once '../controllers/DoctoresController.php' ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doctores</title>
+  <title>Document</title>
   <link rel="preconnect" href="https://rsms.me/">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="stylesheet" href="./main.css">
@@ -16,16 +16,24 @@
 </style>
 </head>
 <body>
-  <h1>Doctores</h1>
+<?php 
+  require "./componentes/modalsDoctor.php";
+  renderModalInsert();
+  renderModalUpdate();
+  renderDeleteModal();
+?>
   <?php require './componentes/sidebar.php' ?>
 
-  <table>
-    <tr>
-      <th>DNI Doctor</th>
+
+  <div class="data">
+  <div><input type="text"> <button>Buscar</button> <button>Filtro</button> <button class="insert__btn"><i class="fa-solid fa-plus"></i></button> </div>
+  <table class="data__table">
+    <tr class="table__header">
+      <th>DNI</th>
       <th>Nombre</th>
       <th>Apellidos</th>
       <th>Direccion</th>
-      <th>Número de teléfono</th>
+      <th>Telefono</th>
       <th>Email</th>
       <th>Especialidad</th>
       <th>Fecha de Unión</th>
@@ -33,9 +41,9 @@
       <th>Modificar</th>
       <th>Eliminar</th>
     </tr>
-  <?php mostrarDoctores() ?>
+    <?php mostrarDoctores(); ?>
   </table>
-  <?php require './componentes/footer.php' ?>
-
+  </div>
+  <script src="./js/doctores.js"></script>
 </body>
 </html>

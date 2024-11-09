@@ -33,8 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (cancelBtn) {
     cancelBtn.addEventListener('click', (event) => {
-      event.preventDefault(); // Previene el envío del formulario
-      // Aquí puedes agregar cualquier otra lógica adicional, como cerrar el modal
+      event.preventDefault();
       console.log("Cancel button clicked. Preventing form submission.");
     });
   }

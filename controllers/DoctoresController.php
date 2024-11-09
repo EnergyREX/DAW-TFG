@@ -7,18 +7,18 @@ function mostrarDoctores() {
   $datos = obtenerDoctores();
 
   foreach ($datos as $dato) {
-    echo '<tr>';
-    echo '<td>'.$dato['dni'].'</td>';
-    echo '<td>'.$dato['nombre'].'</td>';
-    echo '<td>'.$dato['apellidos'].'</td>';
-    echo '<td>'.$dato['direccion'].'</td>';
-    echo '<td>'.$dato['telefono'].'</td>';
-    echo '<td>'.$dato['email'].'</td>';
-    echo '<td>'.$dato['especialidad'].'</td>';
-    echo '<td>'.$dato['fecha_union'].'</td>';
-    echo '<td>'.$dato['disponibilidad'].'</td>';
-    echo "<td><button class='update__btn' data-id='".$dato['dni']."'><i class='fa-solid fa-pen-to-square'></i></button>";
-    echo "<td><button class='delete__btn' data-id='".$dato['dni']."'><i class='fa-solid fa-trash'></i></button>";
+    echo '<tr class="table__data">';
+    echo '<td class="data__piece">'.$dato['dni'].'</td>';
+    echo '<td class="data__piece">'.$dato['nombre'].'</td>';
+    echo '<td class="data__piece">'.$dato['apellidos'].'</td>';
+    echo '<td class="data__piece">'.$dato['direccion'].'</td>';
+    echo '<td class="data__piece">'.$dato['telefono'].'</td>';
+    echo '<td class="data__piece">'.$dato['email'].'</td>';
+    echo '<td class="data__piece">'.$dato['especialidad'].'</td>';
+    echo '<td class="data__piece">'.$dato['fecha_union'].'</td>';
+    echo '<td class="data__piece">'.$dato['disponibilidad'].'</td>';
+    echo "<td class='data__btn'><button class='update__btn' data-id='".$dato['dni']."'><i class='fa-solid fa-pen-to-square'></i></button>";
+    echo "<td class='data__btn'><button class='delete__btn' data-id='".$dato['dni']."'><i class='fa-solid fa-trash'></i></button>";
     echo "</tr>";
   }
 }
@@ -54,16 +54,16 @@ function modificarDoctor() {
     $especialidad, $fecha_union, $disponibilidad);
 }
 
-function eliminarDoctor() {
-    $id = isset($_POST['id']) ? (int) $_POST['id'] : null;
-    eliminarDoctor($id);
+function doctorEliminar() {
+    $dni = isset($_POST['dni']) ? (int) $_POST['dni'] : null;
+    eliminarDoctor($dni);
 }
 
 if ($method == "insert") {
-    nuevaCita();
+    nuevoDoctor();
 } else if ($method == "delete") {
-    eliminarCita();
+    doctorEliminar();
 } else if ($method == "update") {
-    modificarCita();
+    modificarDoctor();
 }
 ?>

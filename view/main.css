@@ -5,7 +5,33 @@ head {
 body {
     display: grid;
     margin: 0px;
-    grid-template-columns: (20%, 80%);
+    grid-template-columns: (30%, 70%);
+}
+
+.sidebar {
+    padding: 1rem;
+    list-style-type: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.sidebar li {
+    margin: 0.8rem
+}
+
+.sidebar__link {
+    text-decoration: none;
+    color: #000;
+    padding: 0.6rem;
+    border-radius: 6px;
+}
+
+.sidebar__link:hover {
+    background-color: #b5f6f8;
+}
+
+.sidebar__link:visited {
+    color: #000;
 }
 
 .data {
@@ -17,21 +43,79 @@ body {
 }
 
 .table__data {
-    background-color: #d7d7d7;
     padding: 1rem;
+    margin-top: 0.5rem;
 }
 
 .data__table {
     font-size: 1.125rem;
-    
+    border-collapse: collapse;
+    width: 100%;
 }
 
 .data__piece {
     display: table-cell;
     text-align: center;  
     padding: 0px;
-    margin: 0px;
+    margin: 10px;
     padding: 1rem;
+    border-top: #d7d7d7 solid 1px;
+}
+
+.table__data:hover {
+    background-color: #dfdfdf;
+}
+
+.table__data:hover .update__btn {
+    background-color: #dfdfdf;
+}
+
+.table__data:hover .delete__btn {
+    background-color: #dfdfdf;
+}
+
+.data__btn {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.data__control {
+    margin-bottom: 1rem;
+    align-self: left;
+}
+
+.insert__btn {
+    font-weight: 600;
+    font-size: 1.25rem;
+    border: #0e0e0e solid 1px;
+    border-radius: 6px;
+}
+
+.insert__btn:hover {
+    color: green;
+    transition: 0.1s;
+}
+
+.delete__btn {
+    background-color: #fff;
+    border: 0px;
+    font-size: 1.25rem;
+}
+
+.delete__btn:hover {
+    color: red;
+    transition: 0.2s;
+}
+
+.update__btn {
+    background-color: #fff;
+    border: 0px;
+    font-size: 1.25rem;
+}
+
+.update__btn:hover {
+    color: blue;
+    transition: 0.2s;
 }
 
 .modal__insert {
