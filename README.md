@@ -11,6 +11,9 @@ El proyecto tratará de un software de gestión de clínicas, donde, se tendrán
 
 ## Algunas cosas por hacer:
 
-* [] Ordenar la carpeta de Vista.
-* [] Dividir los archivos CSS.
-* [] Hacer las consultas SQL seguras.
+<input type="checkbox"> - Ordenar los directorios
+<input type="checkbox"> - Desarrollar index.html
+<input type="checkbox"> - Hacer las consultas SQL seguras
+<input type="checkbox"> - Comentar el código
+<input type="checkbox"> - Hacer documento de Anteproyecto
+<input type="checkbox"> - Modo oscuro
