@@ -31,7 +31,9 @@
     <tr class="table__header">
       <th>ID Cita</th>
       <th>Paciente</th>
+      <th>Nombre</th>
       <th>Doctor</th>
+      <th>Nombre</th>
       <th>Estado</th>
       <th>Motivo</th>
       <th>Día</th>

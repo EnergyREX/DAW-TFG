@@ -8,6 +8,10 @@ body {
     grid-template-columns: (30%, 70%);
 }
 
+.table__header {
+    padding-bottom: 0.5rem;
+}
+
 .sidebar {
     padding: 1rem;
     list-style-type: none;

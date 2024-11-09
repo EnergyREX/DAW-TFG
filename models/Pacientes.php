@@ -2,7 +2,7 @@
 
 require_once('../config/config.inc.php');
 
-function obtenerCitas() {
+function obtenerPacientes() {
   // Variables globales en config.inc.
   $dsn = DB_DSN;
   $usuario = DB_USER;
@@ -16,18 +16,7 @@ function obtenerCitas() {
     echo "Error de conexión. " . $e->getMessage();
   }
 
-  $sqlQuery = "
-    SELECT 
-      citas.*,
-      paciente.nombre AS nombre_paciente,
-      doctores.nombre AS nombre_doctor
-    FROM 
-      citas
-    JOIN 
-      paciente ON citas.paciente = paciente.dni
-    JOIN 
-      doctores ON citas.doctor = doctores.dni;
-";
+  $sqlQuery = "SELECT * FROM paciente";
   
   $query = $pdo->prepare($sqlQuery);
   $query->execute();
@@ -35,7 +24,8 @@ function obtenerCitas() {
   return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
-function insertarCitas($paciente, $doctor, $motivo, $estado, $dia, $hora) {
+function insertarPaciente($dni, $nombre, $apellidos, $direccion, $telefono, 
+                        $email) {
   // Variables globales en config.inc.
   $dsn = DB_DSN;
   $usuario = DB_USER;
@@ -47,12 +37,10 @@ function insertarCitas($paciente, $doctor, $motivo, $estado, $dia, $hora) {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   } catch (PDOException $e) {
     echo "Error de conexión. " . $e->getMessage();
-  }
+  } 
 
-  $hora = "$hora:00"; 
-
-  $sqlQuery = "INSERT INTO citas (paciente, doctor, motivo, estado, dia, hora)
-   VALUES ('$paciente', '$doctor', '$motivo', '$estado', '$dia', '$hora')";
+  $sqlQuery = "INSERT INTO paciente (dni, nombre, apellidos, direccion, telefono, email)
+   VALUES ('$dni', '$nombre', '$apellidos', '$direccion', '$telefono', '$email')";
 
   $query = $pdo->prepare($sqlQuery);
   $query->execute();
@@ -60,7 +48,7 @@ function insertarCitas($paciente, $doctor, $motivo, $estado, $dia, $hora) {
   return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
-function eliminarCitas($id) {
+function eliminarPaciente($dni) {
     // Variables globales en config.inc.
     $dsn = DB_DSN;
     $usuario = DB_USER;
@@ -74,13 +62,14 @@ function eliminarCitas($id) {
       echo "Error de conexión. " . $e->getMessage();
     }
   
-    $sqlQuery = "DELETE FROM citas WHERE id = $id";
+    $sqlQuery = "DELETE FROM paciente WHERE dni = $dni";
 
     $query = $pdo->prepare($sqlQuery);
     $query->execute();
 }
 
-function actualizarCita($id, $paciente, $doctor, $motivo, $estado, $dia, $hora ) {
+function actualizarPaciente($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, 
+                          $email) {
     // Variables globales en config.inc.
     $dsn = DB_DSN;
     $usuario = DB_USER;
@@ -93,27 +82,16 @@ function actualizarCita($id, $paciente, $doctor, $motivo, $estado, $dia, $hora )
     } catch (PDOException $e) {
       echo "Error de conexión. " . $e->getMessage();
     }
-  
-    /* Ejemplo:
-    UPDATE citas SET 
-    paciente = '45678901D', 
-    doctor = '34567890C', 
-    motivo = 'Lobotomía', 
-    estado = 'Cancelada' 
-    dia = '2024-11-30' 
-    hora = '21:00:00' 
-    WHERE id = 1;
-    */
 
     $sqlQuery = 
-    "UPDATE citas SET 
-    paciente = '$paciente', 
-    doctor = '$doctor', 
-    motivo = '$motivo', 
-    estado = '$estado', 
-    dia = '$dia', 
-    hora = '$hora' 
-    WHERE id = $id;";
+    "UPDATE paciente SET 
+    dni = '$dni', 
+    nombre = '$nombre', 
+    apellidos = '$apellidos', 
+    direccion = '$direccion', 
+    telefono = '$telefono', 
+    email = '$email'
+    WHERE dni = '$dni_old';";
 
     $query = $pdo->prepare($sqlQuery);
     $query->execute();

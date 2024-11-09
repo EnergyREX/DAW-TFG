@@ -10,7 +10,9 @@ function mostrarCitas() {
     echo '<tr class="table__data">';
         echo '<td class="data__piece">'.$dato['id'].'</td>';
         echo '<td class="data__piece">'.$dato['paciente'].'</td>';
+        echo '<td class="data__piece">'.$dato['nombre_paciente'].'</td>';
         echo '<td class="data__piece">'.$dato['doctor'].'</td>';
+        echo '<td class="data__piece">'.$dato['nombre_doctor'].'</td>';
         echo '<td class="data__piece">'.$dato['estado'].'</td>';
         echo '<td class="data__piece">'.$dato['motivo'].'</td>';
         echo '<td class="data__piece">'.$dato['dia'].'</td>';
