@@ -8,7 +8,7 @@ function mostrarAsistentes() {
 
   foreach ($datos as $dato) {
     echo '<tr class="table__data">';
-    echo '<td class="data__piece">'.$dato['dni'].'</td>';
+    echo '<td class="data__piece"><b>'.$dato['dni'].'</b></td>';
     echo '<td class="data__piece">'.$dato['nombre'].'</td>';
     echo '<td class="data__piece">'.$dato['apellidos'].'</td>';
     echo '<td class="data__piece">'.$dato['direccion'].'</td>';

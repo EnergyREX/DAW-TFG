@@ -29,19 +29,13 @@
   <div class="data__control"><input type="text"> <button>Buscar</button> <button>Filtro</button> <button class="insert__btn"><i class="fa-solid fa-plus"></i></button> </div>
   <table class="data__table">
     <tr class="table__header">
-      <th>ID Cita</th>
-      <th>Paciente</th>
+      <th>ID</th>
       <th>Nombre</th>
-      <th>Doctor</th>
-      <th>Nombre</th>
-      <th>Estado</th>
-      <th>Motivo</th>
-      <th>Día</th>
-      <th>Hora</th>
+      <th>Precio</th>
       <th>Modificar</th>
       <th>Eliminar</th>
     </tr>
-    <?php mostrarTratamientos(); ?>
+    <?php mostrar(); ?>
   </table>
   </div>
   <script src="./js/tratamientos.js"></script>

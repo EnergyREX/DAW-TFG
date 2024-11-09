@@ -8,7 +8,7 @@ function mostrarCitas() {
 
   foreach ($datos as $dato) {
     echo '<tr class="table__data">';
-        echo '<td class="data__piece">'.$dato['id'].'</td>';
+        echo '<td class="data__piece"><b>'.$dato['id'].'</b></td>';
         echo '<td class="data__piece">'.$dato['paciente'].'</td>';
         echo '<td class="data__piece">'.$dato['nombre_paciente'].'</td>';
         echo '<td class="data__piece">'.$dato['doctor'].'</td>';

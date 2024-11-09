@@ -40,7 +40,7 @@ function insertarTratamiento($id, $nombre, $precio) {
     echo "Error de conexión. " . $e->getMessage();
   }
 
-  $sqlQuery = "INSERT INTO tratamiento (id, nombre, precio)
+  $sqlQuery = "INSERT INTO tratamientos (id, nombre, precio)
    VALUES ('$id', '$nombre', '$precio')";
 
   $query = $pdo->prepare($sqlQuery);
@@ -85,7 +85,7 @@ function actualizarTratamiento($id, $nombre, $precio) {
 
     $sqlQuery = 
     "UPDATE tratamientos SET 
-    paciente = '$id', 
+    id = '$id', 
     nombre = '$nombre', 
     precio = '$precio' 
     WHERE id = $id;";

@@ -1,3 +1,5 @@
+
+<?php require '../config/config.inc.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,7 @@
   <link rel="preconnect" href="https://rsms.me/">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="stylesheet" href="./main.css">
+  <script src=<?php echo FA6_URL ?> crossorigin="anonymous"></script>
 <style>
   body {
     font-family: 'Inter', sans-serif;
