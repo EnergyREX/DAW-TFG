@@ -6,28 +6,32 @@ function renderModalInsert() {
         <h1 class="modal__title">Insertar un nuevo dato</h1>
         <button class="close__btn"><i class="fa-solid fa-x"></i></button>
         <form class="modal__form" action="./doctores.php" method="post">
-            <label class="form__label" for="paciente">Paciente</label>
-            <input class="form__input" type="text" name="paciente">
+            <label class="form__label" for="dni">DNI</label>
+            <input class="form__input" type="text" name="dni">
             
-            <label class="form__label" for="doctor">Doctor</label>
-            <input class="form__input" type="text" name="doctor">
-            
-            <label class="form__label" for="estado">Estado</label>
-            <select class="form__input" name="estado">
-                <option>Confirmada</option>
-                <option>Pendiente</option>
-                <option>Cancelada</option>
-            </select>   
-            
-            <label class="form__label" for="motivo">Motivo</label>
-            <input class="form__input" type="text" name="motivo">
-            
-            <label class="form__label" for="dia">Día</label>
-            <input class="form__input" type="date" name="dia">
-            
-            <label class="form__label" for="hora">Hora</label>
-            <input class="form__input" type="time" name="hora">
-            
+            <label class="form__label" for="nombre">Nombre</label>
+            <input class="form__input" type="text" name="nombre">
+
+            <label class="form__label" for="apellidos">Apellidos</label>
+            <input class="form__input" type="text" name="apellidos">
+
+            <label class="form__label" for="direccion">Dirección</label>
+            <input class="form__input" type="text" name="direccion">
+
+            <label class="form__label" for="telefono">Telefono</label>
+            <input class="form__input" type="text" name="telefono">
+
+            <label class="form__label" for="email">Email</label>
+            <input class="form__input" type="text" name="email">
+
+            <label class="form__label" for="especialidad">Especialidad</label>
+            <input class="form__input" type="text" name="especialidad">
+
+            <label class="form__label" for="fecha_union">Fecha de Unión</label>
+            <input class="form__input" type="date" name="fecha_union">
+
+            <label class="form__label" for="disponibilidad">Disponibilidad</label>
+            <input class="form__input" type="text" name="disponibilidad">
             <div class="form__btns">
                 <button class="form__btn-submit" type="submit">Insertar</button>
             </div>
@@ -41,37 +45,43 @@ function renderModalInsert() {
 function renderModalUpdate() {
     echo ('<div class="modal__update">
         <div class="modal__content">
-            <h1 class="modal__title">Insertar un nuevo dato</h1>
+            <h1 class="modal__title">Actualizar un dato</h1>
             <button class="close__btn"><i class="fa-solid fa-x"></i></button>
             <form class="modal__form" action="./doctores.php" method="post">
-                <label class="form__label" for="paciente">Paciente</label>
-                <input class="form__input" type="text" name="paciente">
+
+                <label class="form__label" for="dni">DNI</label>
+                <input class="form__input" type="text" name="dni">
                 
-                <label class="form__label" for="doctor">Doctor</label>
-                <input class="form__input" type="text" name="doctor">
-                
-                <label class="form__label" for="estado">Estado</label>
-                <select class="form__input" name="estado">
-                    <option>Confirmada</option>
-                    <option>Pendiente</option>
-                    <option>Cancelada</option>
-                </select>   
-                
-                <label class="form__label" for="motivo">Motivo</label>
-                <input class="form__input" type="text" name="motivo">
-                
-                <label class="form__label" for="dia">Día</label>
-                <input class="form__input" type="date" name="dia">
-                
-                <label class="form__label" for="hora">Hora</label>
-                <input class="form__input" type="time" name="hora">
+                <label class="form__label" for="nombre">Nombre</label>
+                <input class="form__input" type="text" name="nombre">
+
+                <label class="form__label" for="apellidos">Apellidos</label>
+                <input class="form__input" type="text" name="apellidos">
+
+                <label class="form__label" for="direccion">Dirección</label>
+                <input class="form__input" type="text" name="direccion">
+
+                <label class="form__label" for="telefono">Telefono</label>
+                <input class="form__input" type="text" name="telefono">
+
+                <label class="form__label" for="email">Email</label>
+                <input class="form__input" type="text" name="email">
+
+                <label class="form__label" for="especialidad">Especialidad</label>
+                <input class="form__input" type="text" name="especialidad">
+
+                <label class="form__label" for="fecha_union">Fecha de Unión</label>
+                <input class="form__input" type="date" name="fecha_union">
+
+                <label class="form__label" for="disponibilidad">Disponibilidad</label>
+                <input class="form__input" type="text" name="disponibilidad">
                 
                 <div class="form__btns">
                     <button class="form__btn-update" type="submit">Update</button>
                 </div>
                 
                 <input type="hidden" value="update" name="method">
-                <input type="hidden" value="" name="id" id="updateId">
+                <input type="hidden" value="" name="dni_old" id="updateId">
             </form>
         </div>
        </div>');
@@ -86,7 +96,7 @@ function renderDeleteModal() {
       <div class="form__btns">
       <button class="form__btn-delete" type="submit">Eliminar</button>
         <input type="hidden" value="delete" name="method">
-        <input type="hidden" value="" name="id" id="deleteId">
+        <input type="hidden" value="" name="dni" id="deleteId">
       </div>
     </form>
     </div>

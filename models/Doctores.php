@@ -69,7 +69,7 @@ function eliminarDoctor($dni) {
     $query->execute();
 }
 
-function actualizarDoctor($dni, $nombre, $apellidos, $direccion, $telefono, 
+function actualizarDoctor($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, 
                           $email, $especialidad, $fecha_union, $disponibilidad) {
     // Variables globales en config.inc.
     $dsn = DB_DSN;
@@ -85,7 +85,7 @@ function actualizarDoctor($dni, $nombre, $apellidos, $direccion, $telefono,
     }
 
     $sqlQuery = 
-    "UPDATE citas SET 
+    "UPDATE doctores SET 
     dni = '$dni', 
     nombre = '$nombre', 
     apellidos = '$apellidos', 
@@ -95,7 +95,7 @@ function actualizarDoctor($dni, $nombre, $apellidos, $direccion, $telefono,
     especialidad = '$especialidad',
     fecha_union = '$fecha_union',
     disponibilidad = '$disponibilidad' 
-    WHERE id = $dni;";
+    WHERE dni = '$dni';";
 
     $query = $pdo->prepare($sqlQuery);
     $query->execute();

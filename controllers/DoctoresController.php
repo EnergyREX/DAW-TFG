@@ -40,6 +40,7 @@ function nuevoDoctor() {
 }
 
 function modificarDoctor() {
+    $dni_old = isset($_POST['dni_old']) ? $_POST['dni_old'] : null;
     $dni = isset($_POST['dni']) ? $_POST['dni'] : null;
     $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
     $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : null;
@@ -50,7 +51,7 @@ function modificarDoctor() {
     $fecha_union = isset($_POST['fecha_union']) ? $_POST['fecha_union'] : null;
     $disponibilidad = isset($_POST['disponibilidad']) ? $_POST['disponibilidad'] : null;
 
-    actualizarDoctor($dni, $nombre, $apellidos, $direccion, $telefono, $email, 
+    actualizarDoctor($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, $email, 
     $especialidad, $fecha_union, $disponibilidad);
 }
 
