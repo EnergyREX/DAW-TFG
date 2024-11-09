@@ -40,13 +40,15 @@ function modificarPaciente() {
     $direccion = isset($_POST['direccion']) ? $_POST['direccion'] : null;
     $telefono = isset($_POST['telefono']) ? $_POST['telefono'] : null;
     $email = isset($_POST['email']) ? $_POST['email'] : null;
+    $passwd = isset($_POST['password']) ? $_POST['password'] : null;
 
-    actualizarPaciente($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, $email);
+
+    actualizarPaciente($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, $email, $passwd);
 }
 
 function pacienteEliminar() {
     $dni = isset($_POST['dni']) ? (int) $_POST['dni'] : null;
-    eliminarDoctor($dni);
+    eliminarPaciente($dni);
 }
 
 if ($method == "insert") {

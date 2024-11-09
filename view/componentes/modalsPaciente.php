@@ -24,6 +24,9 @@ function renderModalInsert() {
             <label class="form__label" for="email">Email</label>
             <input class="form__input" type="text" name="email">
 
+            <label class="form__label" for="password">Password</label>
+            <input class="form__input" type="password" name="password">
+
             <div class="form__btns">
                 <button class="form__btn-submit" type="submit">Insertar</button>
             </div>
@@ -58,7 +61,10 @@ function renderModalUpdate() {
 
                 <label class="form__label" for="email">Email</label>
                 <input class="form__input" type="text" name="email">
-                
+
+                <label class="form__label" for="password">Password</label>
+                <input class="form__input" type="password" name="password">
+
                 <div class="form__btns">
                     <button class="form__btn-update" type="submit">Update</button>
                 </div>

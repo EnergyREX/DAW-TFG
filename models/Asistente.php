@@ -2,7 +2,7 @@
 
 require_once('../config/config.inc.php');
 
-function obtenerDoctores() {
+function obtenerAsistentes() {
   // Variables globales en config.inc.
   $dsn = DB_DSN;
   $usuario = DB_USER;
@@ -16,7 +16,7 @@ function obtenerDoctores() {
     echo "Error de conexión. " . $e->getMessage();
   }
 
-  $sqlQuery = "SELECT * FROM doctores";
+  $sqlQuery = "SELECT * FROM asistente";
   
   $query = $pdo->prepare($sqlQuery);
   $query->execute();
@@ -24,8 +24,8 @@ function obtenerDoctores() {
   return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
-function insertarDoctor($dni, $nombre, $apellidos, $direccion, $telefono, 
-                        $email, $passwd, $especialidad, $fecha_union, $disponibilidad) {
+function insertarAsistente($dni, $nombre, $apellidos, $direccion, $telefono, 
+                        $email, $passwd, $fecha_union, $disponibilidad) {
   // Variables globales en config.inc.
   $dsn = DB_DSN;
   $usuario = DB_USER;
@@ -39,9 +39,9 @@ function insertarDoctor($dni, $nombre, $apellidos, $direccion, $telefono,
     echo "Error de conexión. " . $e->getMessage();
   } 
 
-  $sqlQuery = "INSERT INTO doctores (dni, nombre, apellidos, direccion, telefono, email, contraseña, especialidad, fecha_union, disponibilidad)
+  $sqlQuery = "INSERT INTO asistente (dni, nombre, apellidos, direccion, telefono, email, contraseña, fecha_union, disponibilidad)
    VALUES ('$dni', '$nombre', '$apellidos', '$direccion', '$telefono', '$email', '$passwd', 
-          '$especialidad', '$fecha_union', '$disponibilidad')";
+           '$fecha_union', '$disponibilidad')";
 
   $query = $pdo->prepare($sqlQuery);
   $query->execute();
@@ -49,7 +49,7 @@ function insertarDoctor($dni, $nombre, $apellidos, $direccion, $telefono,
   return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
-function eliminarDoctor($dni) {
+function eliminarAsistente($dni) {
     // Variables globales en config.inc.
     $dsn = DB_DSN;
     $usuario = DB_USER;
@@ -63,14 +63,14 @@ function eliminarDoctor($dni) {
       echo "Error de conexión. " . $e->getMessage();
     }
   
-    $sqlQuery = "DELETE FROM doctores WHERE dni = $dni";
+    $sqlQuery = "DELETE FROM asistente WHERE dni = $dni";
 
     $query = $pdo->prepare($sqlQuery);
     $query->execute();
 }
 
-function actualizarDoctor($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, 
-                          $email, $especialidad, $fecha_union, $disponibilidad) {
+function actualizarAsistente($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, 
+                          $email, $passwd) {
     // Variables globales en config.inc.
     $dsn = DB_DSN;
     $usuario = DB_USER;
@@ -85,16 +85,14 @@ function actualizarDoctor($dni_old, $dni, $nombre, $apellidos, $direccion, $tele
     }
 
     $sqlQuery = 
-    "UPDATE doctores SET 
+    "UPDATE asistente SET 
     dni = '$dni', 
     nombre = '$nombre', 
     apellidos = '$apellidos', 
     direccion = '$direccion', 
     telefono = '$telefono', 
     email = '$email',
-    especialidad = '$especialidad',
-    fecha_union = '$fecha_union',
-    disponibilidad = '$disponibilidad' 
+    contraseña = '$passwd'
     WHERE dni = '$dni_old';";
 
     $query = $pdo->prepare($sqlQuery);
