@@ -48,7 +48,7 @@ function renderModalInsert() {
 function renderModalUpdate() {
     echo ('<div class="modal__update">
         <div class="modal__content">
-            <h1 class="modal__title">Actualizar un dato</h1>
+            <h1 class="modal__title">Modificar un dato</h1>
             <button class="close__btn"><i class="fa-solid fa-x"></i></button>
             <form class="modal__form" action="./doctores.php" method="post">
 

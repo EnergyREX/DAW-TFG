@@ -26,14 +26,13 @@
 
 
   <div class="data">
-  <div class="data__control"><input type="text"> <button>Buscar</button> <button>Filtro</button> <button class="insert__btn"><i class="fa-solid fa-plus"></i></button> </div>
+  <div><input type="text"> <button>Buscar</button> <button>Filtro</button> <button class="insert__btn"><i class="fa-solid fa-plus"></i></button> </div>
   <table class="data__table">
     <tr class="table__header">
       <th>ID</th>
       <th>Nombre</th>
       <th>Precio</th>
-      <th>Modificar</th>
-      <th>Eliminar</th>
+      <th>Opciones</th>
     </tr>
     <?php mostrar(); ?>
   </table>

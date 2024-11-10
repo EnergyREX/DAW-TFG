@@ -9,16 +9,23 @@ body {
     background-color: #f1f1f1;
 }
 
-.table__header {
+.table__header th {
     padding-bottom: 0.5rem;
 }
 
 .sidebar {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
     padding: 1rem;
     list-style-type: none;
     font-size: 1.5rem;
     font-weight: 400;
     border-right: #d7d7d7 solid 1px;
+}
+
+.link__icon {
+    margin-right: 1rem;
 }
 
 .sidebar li {
@@ -47,6 +54,7 @@ body {
     margin-top: 2rem;
     margin-right: 10rem;
     margin-left: 2rem;
+    overflow-x: auto;
 }
 
 .table__data {
@@ -77,6 +85,29 @@ body {
     background-color: #dfdfdf;
 }
 
+.data__options {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    background-color: rgb(182, 238, 238);
+    border-radius: 12px;
+}
+
+.data__options input {
+    padding: 0.5rem;
+    border-radius: 2px;
+}
+
+.data__options button {
+    padding: 0.5rem;
+}
+
+.data__options span {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    font-weight: 900;
+    font-size: 1.325rem;
+}
 .table__data:hover .delete__btn {
     background-color: #dfdfdf;
 }
@@ -95,7 +126,8 @@ body {
 .insert__btn {
     font-weight: 600;
     font-size: 1.25rem;
-    border: #0e0e0e solid 1px;
+    border: #38970c solid 1px;
+    background-color: rgb(182, 238, 238);
     border-radius: 6px;
 }
 

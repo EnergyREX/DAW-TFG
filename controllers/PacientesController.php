@@ -14,8 +14,8 @@ function mostrarPacientes() {
     echo '<td class="data__piece">'.$dato['direccion'].'</td>';
     echo '<td class="data__piece">'.$dato['telefono'].'</td>';
     echo '<td class="data__piece">'.$dato['email'].'</td>';
-    echo "<td class='data__btn'><button class='update__btn' data-id='".$dato['dni']."'><i class='fa-solid fa-pen-to-square'></i></button>";
-    echo "<td class='data__btn'><button class='delete__btn' data-id='".$dato['dni']."'><i class='fa-solid fa-trash'></i></button>";
+    echo "<td class='data__btn'><button class='update__btn' data-id='".$dato['dni']."'><i class='fa-solid fa-pen-to-square'></i></button> 
+    <button class='delete__btn' data-id='".$dato['dni']."'><i class='fa-solid fa-trash'></i></button> </td>";
     echo "</tr>";
   }
 }

@@ -11,8 +11,8 @@ function mostrar() {
         echo '<td class="data__piece"><b>'.$dato['id'].'</b></td>';
         echo '<td class="data__piece">'.$dato['nombre'].'</td>';
         echo '<td class="data__piece">'.$dato['precio'].'€</td>';
-        echo "<td class='data__btn'><button class='update__btn' data-id='".$dato['id']."'><i class='fa-solid fa-pen-to-square'></i></button>";
-        echo "<td class='data__btn'><button class='delete__btn' data-id='".$dato['id']."'><i class='fa-solid fa-trash'></i></button>";
+        echo "<td class='data__btn'><button class='update__btn' data-id='".$dato['id']."'><i class='fa-solid fa-pen-to-square'></i></button> 
+        <button class='delete__btn' data-id='".$dato['id']."'><i class='fa-solid fa-trash'></i></button></td>";
     echo "</tr>";
   }
 }

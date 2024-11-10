@@ -26,7 +26,7 @@
 
 
   <div class="data">
-  <div class="data__control"><input type="text"> <button>Buscar</button> <button>Filtro</button> <button class="insert__btn"><i class="fa-solid fa-plus"></i></button> </div>
+  <div class="data__options"><span>Doctores</span><input type="text" placeholder="Esto aún no tiene función"><button>Buscar</button> <button>Filtro</button> <button class="insert__btn"><i class="fa-solid fa-plus"></i></button> </div>
   <table class="data__table">
     <tr class="table__header">
       <th>ID Cita</th>
@@ -38,8 +38,7 @@
       <th>Motivo</th>
       <th>Día</th>
       <th>Hora</th>
-      <th>Modificar</th>
-      <th>Eliminar</th>
+      <th>Opciones</th>
     </tr>
     <?php mostrarCitas(); ?>
   </table>
