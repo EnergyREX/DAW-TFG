@@ -28,5 +28,5 @@ El proyecto tratará de un software de gestión de clínicas, donde se tendrán 
 Para inicializar el proyecto en su estado actual, deberás de seguir los siguientes pasos:
 
 1. Asegúrate de tener instalado PHP y MySQL/MariaDB en tu sistema.
-2. Crea la base de datos ejecutando las queries de la carpeta "BBDD", o bien, ejecuta el proyecto en el archivo index.php y haz click en los botones.
-3. 
+2. Crea la base de datos ejecutando las queries de la carpeta "BBDD" en PHPMyAdmin o MySQLWorkBench.
+3. Ejecuta el proyecto en view/index.php.
