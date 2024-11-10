@@ -26,7 +26,8 @@
 
 
   <div class="data">
-  <div class="data__options"><span>Doctores</span><input type="text" placeholder="Esto aún no tiene función"><button>Buscar</button> <button>Filtro</button> <button class="insert__btn"><i class="fa-solid fa-plus"></i></button> </div>
+    <h1>Citas</h1>
+  <div class="data__options"><span>Citas</span><input type="text" placeholder="Esto aún no tiene función"><button>Buscar</button> <button>Filtro</button> <button class="insert__btn"><i class="fa-solid fa-plus"></i></button> </div>
   <table class="data__table">
     <tr class="table__header">
       <th>ID Cita</th>

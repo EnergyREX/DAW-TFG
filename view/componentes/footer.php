@@ -1,5 +1,8 @@
 <?php 
 
-echo '<footer> </footer>'
+echo '
+<footer> 
+  
+</footer>'
 
 ?>
