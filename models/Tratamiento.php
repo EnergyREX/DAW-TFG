@@ -41,12 +41,15 @@ function insertar($id, $nombre, $precio) {
   }
 
   $sqlQuery = "INSERT INTO tratamientos (id, nombre, precio)
-   VALUES ('$id', '$nombre', '$precio')";
+   VALUES (:id, :nombre, :precio)";
 
   $query = $pdo->prepare($sqlQuery);
+
+  $query->bindParam(':id', $id);
+  $query->bindParam(':nombre', $nombre);
+  $query->bindParam(':precio', $precio);
+
   $query->execute();
-  
-  return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
 function delete($id) {

@@ -1,6 +1,5 @@
 
 <?php require '../config/config.inc.php' ?>
-<?php require '../models/Database.php' ?>
 
 <!DOCTYPE html>
 <html lang="en">
