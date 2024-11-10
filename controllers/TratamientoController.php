@@ -4,7 +4,7 @@ require_once('../models/Tratamiento.php');
 $method = isset($_POST['method']) ? $_POST['method'] : null;
 
 function mostrar() {
-  $datos = obtenerTratamientos();
+  $datos = obtener();
 
   foreach ($datos as $dato) {
     echo '<tr class="table__data">';
@@ -22,7 +22,7 @@ function nuevo() {
     $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
     $precio = isset($_POST['precio']) ? $_POST['precio'] : null;
 
-    insertarTratamiento($id, $nombre, $precio);
+    insertar($id, $nombre, $precio);
     
 }
 
@@ -31,12 +31,12 @@ function modificar() {
     $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
     $precio = isset($_POST['precio']) ? $_POST['precio'] : null;
 
-    actualizarTratamiento($id, $nombre, $precio);
+    actualizar($id, $nombre, $precio);
 }
 
 function eliminar() {
     $id = isset($_POST['id']) ? (int) $_POST['id'] : null;
-    eliminarTratamiento($id);
+    delete($id);
 }
 
 if ($method == "insert") {

@@ -40,7 +40,7 @@
       <th>Disponibilidad</th>
       <th>Opciones</th>
     </tr>
-    <?php mostrarDoctores(); ?>
+    <?php mostrar(); ?>
   </table>
   </div>
   <script src="./js/doctores.js"></script>

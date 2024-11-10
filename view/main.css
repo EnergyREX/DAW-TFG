@@ -9,6 +9,51 @@ body {
     background-color: #f1f1f1;
 }
 
+.user__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user__pfp {
+    width: 64px;
+    height: 64px;
+    border-radius: 50px;
+}
+
+.user__name {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+}
+
+.user__role {
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0rem;
+    font-weight: 300;
+    color: gray;
+}
+
+.user__btn {
+    display: flex;
+    margin-top: 0.7rem;
+    font-size: 1rem;
+    padding: .7rem;
+    padding-right: 1.7rem;
+    padding-left: 1.7rem;
+    border: rgb(79, 150, 207) 1px solid;
+    color: rgb(79, 150, 207);
+    border-radius: 6px;
+}
+
+.user__btn:hover {
+    border: rgb(65, 125, 175) 1px solid;
+    color: rgb(65, 125, 175);
+    cursor: pointer;
+}
+
 .table__header th {
     padding-bottom: 0.5rem;
 }
@@ -89,6 +134,7 @@ body {
     padding-bottom: 1rem;
     padding-top: 1rem;
     padding-left: 1rem;
+    margin-bottom: 1.5rem;
     background-color: rgb(182, 238, 238);
     border-radius: 12px;
 }

@@ -2,7 +2,7 @@
 
 require_once('../config/config.inc.php');
 
-function obtenerPacientes() {
+function obtener() {
   // Variables globales en config.inc.
   $dsn = DB_DSN;
   $usuario = DB_USER;
@@ -24,7 +24,7 @@ function obtenerPacientes() {
   return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
-function insertarPaciente($dni, $nombre, $apellidos, $direccion, $telefono, 
+function insertar($dni, $nombre, $apellidos, $direccion, $telefono, 
                         $email) {
   // Variables globales en config.inc.
   $dsn = DB_DSN;
@@ -48,7 +48,7 @@ function insertarPaciente($dni, $nombre, $apellidos, $direccion, $telefono,
   return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
-function eliminarPaciente($dni) {
+function delete($dni) {
     // Variables globales en config.inc.
     $dsn = DB_DSN;
     $usuario = DB_USER;
@@ -68,7 +68,7 @@ function eliminarPaciente($dni) {
     $query->execute();
 }
 
-function actualizarPaciente($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, 
+function actualizar($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, 
                           $email) {
     // Variables globales en config.inc.
     $dsn = DB_DSN;

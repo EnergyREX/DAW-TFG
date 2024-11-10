@@ -3,8 +3,8 @@ require_once('../models/Citas.php');
 
 $method = isset($_POST['method']) ? $_POST['method'] : null;
 
-function mostrarCitas() {
-  $datos = obtenerCitas();
+function mostrar() {
+  $datos = obtener();
 
   foreach ($datos as $dato) {
     echo '<tr class="table__data">';
@@ -23,7 +23,7 @@ function mostrarCitas() {
   }
 }
 
-function nuevaCita() {
+function nueva() {
     $paciente = isset($_POST['paciente']) ? $_POST['paciente'] : null;
     $doctor = isset($_POST['doctor']) ? $_POST['doctor'] : null;
     $motivo = isset($_POST['motivo']) ? $_POST['motivo'] : null;
@@ -32,11 +32,11 @@ function nuevaCita() {
     $hora = isset($_POST['hora']) ? $_POST['hora'] : null;
 
 
-    insertarCitas($paciente, $doctor, $motivo, $estado, $dia, $hora);
+    insertar($paciente, $doctor, $motivo, $estado, $dia, $hora);
     
 }
 
-function modificarCita() {
+function modificar() {
     $id = isset($_POST['id']) ? $_POST['id'] : null;
     $paciente = isset($_POST['paciente']) ? $_POST['paciente'] : null;
     $doctor = isset($_POST['doctor']) ? $_POST['doctor'] : null;
@@ -45,21 +45,21 @@ function modificarCita() {
     $dia = isset($_POST['dia']) ? $_POST['dia'] : null;
     $hora = isset($_POST['hora']) ? $_POST['hora'] : null;
 
-    obtenerCitas();
+    obtener();
 
-    actualizarCita($id, $paciente, $doctor, $motivo, $estado, $dia, $hora);
+    actualizar($id, $paciente, $doctor, $motivo, $estado, $dia, $hora);
 }
 
-function eliminarCita() {
+function eliminar() {
     $id = isset($_POST['id']) ? (int) $_POST['id'] : null;
-    eliminarCitas($id);
+    delete($id);
 }
 
 if ($method == "insert") {
-    nuevaCita();
+    nueva();
 } else if ($method == "delete") {
-    eliminarCita();
+    eliminar();
 } else if ($method == "update") {
-    modificarCita();
+    modificar();
 }
 ?>

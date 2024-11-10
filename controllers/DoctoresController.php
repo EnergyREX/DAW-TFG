@@ -3,8 +3,8 @@ require_once('../models/Doctores.php');
 
 $method = isset($_POST['method']) ? $_POST['method'] : null;
 
-function mostrarDoctores() {
-  $datos = obtenerDoctores();
+function mostrar() {
+  $datos = obtener();
 
   foreach ($datos as $dato) {
     echo '<tr class="table__data">';
@@ -23,7 +23,7 @@ function mostrarDoctores() {
   }
 }
 
-function nuevoDoctor() {
+function nuevo() {
     $dni = isset($_POST['dni']) ? $_POST['dni'] : null;
     $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
     $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : null;
@@ -36,12 +36,12 @@ function nuevoDoctor() {
     $passwd = isset($_POST['password']) ? $_POST['password'] : null;
 
 
-        insertarDoctor($dni, $nombre, $apellidos, $direccion, $telefono, $email, $passwd, 
+        insertar($dni, $nombre, $apellidos, $direccion, $telefono, $email, $passwd, 
         $especialidad, $fecha_union, $disponibilidad);
     
 }
 
-function modificarDoctor() {
+function modificar() {
     $dni_old = isset($_POST['dni_old']) ? $_POST['dni_old'] : null;
     $dni = isset($_POST['dni']) ? $_POST['dni'] : null;
     $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
@@ -53,20 +53,20 @@ function modificarDoctor() {
     $fecha_union = isset($_POST['fecha_union']) ? $_POST['fecha_union'] : null;
     $disponibilidad = isset($_POST['disponibilidad']) ? $_POST['disponibilidad'] : null;
 
-    actualizarDoctor($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, $email, 
+    actualizar($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, $email, 
     $especialidad, $fecha_union, $disponibilidad);
 }
 
-function doctorEliminar() {
+function eliminar() {
     $dni = isset($_POST['dni']) ? (int) $_POST['dni'] : null;
-    eliminarDoctor($dni);
+    delete($dni);
 }
 
 if ($method == "insert") {
-    nuevoDoctor();
+    nuevo();
 } else if ($method == "delete") {
-    doctorEliminar();
+    eliminar();
 } else if ($method == "update") {
-    modificarDoctor();
+    modificar();
 }
 ?>

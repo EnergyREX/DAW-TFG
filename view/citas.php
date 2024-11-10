@@ -40,7 +40,7 @@
       <th>Hora</th>
       <th>Opciones</th>
     </tr>
-    <?php mostrarCitas(); ?>
+    <?php mostrar(); ?>
   </table>
   </div>
   <script src="./js/citas.js"></script>

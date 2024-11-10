@@ -2,7 +2,7 @@
 
 require_once('../config/config.inc.php');
 
-function obtenerCitas() {
+function obtener() {
   // Variables globales en config.inc.
   $dsn = DB_DSN;
   $usuario = DB_USER;
@@ -35,7 +35,7 @@ function obtenerCitas() {
   return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
-function insertarCitas($paciente, $doctor, $motivo, $estado, $dia, $hora) {
+function insertar($paciente, $doctor, $motivo, $estado, $dia, $hora) {
   // Variables globales en config.inc.
   $dsn = DB_DSN;
   $usuario = DB_USER;
@@ -60,7 +60,7 @@ function insertarCitas($paciente, $doctor, $motivo, $estado, $dia, $hora) {
   return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
-function eliminarCitas($id) {
+function delete($id) {
     // Variables globales en config.inc.
     $dsn = DB_DSN;
     $usuario = DB_USER;
@@ -80,7 +80,7 @@ function eliminarCitas($id) {
     $query->execute();
 }
 
-function actualizarCita($id, $paciente, $doctor, $motivo, $estado, $dia, $hora ) {
+function actualizar($id, $paciente, $doctor, $motivo, $estado, $dia, $hora ) {
     // Variables globales en config.inc.
     $dsn = DB_DSN;
     $usuario = DB_USER;
@@ -93,17 +93,6 @@ function actualizarCita($id, $paciente, $doctor, $motivo, $estado, $dia, $hora )
     } catch (PDOException $e) {
       echo "Error de conexión. " . $e->getMessage();
     }
-  
-    /* Ejemplo:
-    UPDATE citas SET 
-    paciente = '45678901D', 
-    doctor = '34567890C', 
-    motivo = 'Lobotomía', 
-    estado = 'Cancelada' 
-    dia = '2024-11-30' 
-    hora = '21:00:00' 
-    WHERE id = 1;
-    */
 
     $sqlQuery = 
     "UPDATE citas SET 

@@ -3,8 +3,8 @@ require_once('../models/Pacientes.php');
 
 $method = isset($_POST['method']) ? $_POST['method'] : null;
 
-function mostrarPacientes() {
-  $datos = obtenerPacientes();
+function mostrar() {
+  $datos = obtener();
 
   foreach ($datos as $dato) {
     echo '<tr class="table__data">';
@@ -20,7 +20,7 @@ function mostrarPacientes() {
   }
 }
 
-function nuevoPaciente() {
+function nuevo() {
     $dni = isset($_POST['dni']) ? $_POST['dni'] : null;
     $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
     $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : null;
@@ -28,11 +28,11 @@ function nuevoPaciente() {
     $telefono = isset($_POST['telefono']) ? $_POST['telefono'] : null;
     $email = isset($_POST['email']) ? $_POST['email'] : null;
 
-        insertarPaciente($dni, $nombre, $apellidos, $direccion, $telefono, $email);
+        insertar($dni, $nombre, $apellidos, $direccion, $telefono, $email);
     
 }
 
-function modificarPaciente() {
+function modificar() {
     $dni_old = isset($_POST['dni_old']) ? $_POST['dni_old'] : null;
     $dni = isset($_POST['dni']) ? $_POST['dni'] : null;
     $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
@@ -43,19 +43,19 @@ function modificarPaciente() {
     $passwd = isset($_POST['password']) ? $_POST['password'] : null;
 
 
-    actualizarPaciente($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, $email, $passwd);
+    actualizar($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, $email, $passwd);
 }
 
-function pacienteEliminar() {
+function eliminar() {
     $dni = isset($_POST['dni']) ? (int) $_POST['dni'] : null;
-    eliminarPaciente($dni);
+    delete($dni);
 }
 
 if ($method == "insert") {
-    nuevoPaciente();
+    nuevo();
 } else if ($method == "delete") {
-    pacienteEliminar();
+    eliminar();
 } else if ($method == "update") {
-    modificarPaciente();
+    modificar();
 }
 ?>

@@ -2,7 +2,7 @@
 
 require_once('../config/config.inc.php');
 
-function obtenerAsistentes() {
+function obtener() {
   // Variables globales en config.inc.
   $dsn = DB_DSN;
   $usuario = DB_USER;
@@ -24,7 +24,7 @@ function obtenerAsistentes() {
   return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
-function insertarAsistente($dni, $nombre, $apellidos, $direccion, $telefono, 
+function insertar($dni, $nombre, $apellidos, $direccion, $telefono, 
                         $email, $passwd, $fecha_union, $disponibilidad) {
   // Variables globales en config.inc.
   $dsn = DB_DSN;
@@ -49,7 +49,7 @@ function insertarAsistente($dni, $nombre, $apellidos, $direccion, $telefono,
   return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
-function eliminarAsistente($dni) {
+function delete($dni) {
     // Variables globales en config.inc.
     $dsn = DB_DSN;
     $usuario = DB_USER;
@@ -69,7 +69,7 @@ function eliminarAsistente($dni) {
     $query->execute();
 }
 
-function actualizarAsistente($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, 
+function actualizar($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, 
                           $email, $passwd) {
     // Variables globales en config.inc.
     $dsn = DB_DSN;

@@ -2,7 +2,7 @@
 
 require_once('../config/config.inc.php');
 
-function obtenerTratamientos() {
+function obtener() {
   // Variables globales en config.inc.
   $dsn = DB_DSN;
   $usuario = DB_USER;
@@ -26,7 +26,7 @@ function obtenerTratamientos() {
   return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
-function insertarTratamiento($id, $nombre, $precio) {
+function insertar($id, $nombre, $precio) {
   // Variables globales en config.inc.
   $dsn = DB_DSN;
   $usuario = DB_USER;
@@ -49,7 +49,7 @@ function insertarTratamiento($id, $nombre, $precio) {
   return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
-function eliminarTratamiento($id) {
+function delete($id) {
     // Variables globales en config.inc.
     $dsn = DB_DSN;
     $usuario = DB_USER;
@@ -69,7 +69,7 @@ function eliminarTratamiento($id) {
     $query->execute();
 }
 
-function actualizarTratamiento($id, $nombre, $precio) {
+function actualizar($id, $nombre, $precio) {
     // Variables globales en config.inc.
     $dsn = DB_DSN;
     $usuario = DB_USER;

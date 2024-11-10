@@ -3,8 +3,8 @@ require_once('../models/Asistente.php');
 
 $method = isset($_POST['method']) ? $_POST['method'] : null;
 
-function mostrarAsistentes() {
-  $datos = obtenerAsistentes();
+function mostrar() {
+  $datos = obtener();
 
   foreach ($datos as $dato) {
     echo '<tr class="table__data">';
@@ -22,7 +22,7 @@ function mostrarAsistentes() {
   }
 }
 
-function nuevoAsistente() {
+function nuevo() {
     $dni = isset($_POST['dni']) ? $_POST['dni'] : null;
     $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
     $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : null;
@@ -33,11 +33,11 @@ function nuevoAsistente() {
     $fecha_union = isset($_POST['fecha_union']) ? $_POST['fecha_union'] : null;
     $disponibilidad = isset($_POST['disponibilidad']) ? $_POST['disponibilidad'] : null;
 
-        insertarAsistente($dni, $nombre, $apellidos, $direccion, $telefono, $email, $passwd, $fecha_union, $disponibilidad);
+        insertar($dni, $nombre, $apellidos, $direccion, $telefono, $email, $passwd, $fecha_union, $disponibilidad);
     
 }
 
-function modificarAsistente() {
+function modificar() {
     $dni_old = isset($_POST['dni_old']) ? $_POST['dni_old'] : null;
     $dni = isset($_POST['dni']) ? $_POST['dni'] : null;
     $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
@@ -50,19 +50,19 @@ function modificarAsistente() {
     $disponibilidad = isset($_POST['disponibilidad']) ? $_POST['disponibilidad'] : null;
 
 
-    actualizarAsistente($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, $email, $passwd, $fecha_union, $disponibilidad);
+    actualizar($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, $email, $passwd, $fecha_union, $disponibilidad);
 }
 
-function asistenteEliminar() {
+function eliminar() {
     $dni = isset($_POST['dni']) ? (int) $_POST['dni'] : null;
-    eliminarAsistente($dni);
+    delete($dni);
 }
 
 if ($method == "insert") {
-    nuevoAsistente();
+    nuevo();
 } else if ($method == "delete") {
-    asistenteEliminar();
+    eliminar();
 } else if ($method == "update") {
-    modificarAsistente();
+    modificar();
 }
 ?>

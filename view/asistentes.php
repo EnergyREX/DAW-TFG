@@ -39,7 +39,7 @@
       <th>Disponibilidad</th>
       <th>Opciones</th>
     </tr>
-    <?php mostrarAsistentes(); ?>
+    <?php mostrar(); ?>
   </table>
   </div>
   <script src="./js/asistentes.js"></script>
