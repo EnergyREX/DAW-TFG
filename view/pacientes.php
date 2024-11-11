@@ -38,7 +38,7 @@
       <th>Email</th>
       <th>Opciones</th>
     </tr>
-    <?php mostrar(); ?>
+    <?php $pacientes = new PacientesController(); $pacientes->mostrar(); ?>
   </table>
   </div>
   <script src="./js/pacientes.js"></script>

@@ -41,7 +41,7 @@
       <th>Disponibilidad</th>
       <th>Opciones</th>
     </tr>
-    <?php mostrar(); ?>
+    <?php $doctores = new DoctoresController(); $doctores->mostrar();  ?>
   </table>
   </div>
   <script src="./js/doctores.js"></script>

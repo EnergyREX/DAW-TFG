@@ -2,98 +2,79 @@
 
 require_once('../config/config.inc.php');
 
-function obtener() {
-  // Variables globales en config.inc.
-  $dsn = DB_DSN;
-  $usuario = DB_USER;
-  $contrasena = DB_PASS;
+class Pacientes {
+  private $pdo;
 
-  try {
-    $pdo = new PDO($dsn, $usuario, $contrasena);
-    // Modo de error de PDO.
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  } catch (PDOException $e) {
-    echo "Error de conexión. " . $e->getMessage();
-  }
+  function __construct() {
+    $dsn = DB_DSN;
+    $usuario = DB_USER;
+    $contrasena = DB_PASS;
 
-  $sqlQuery = "SELECT * FROM paciente";
-  
-  $query = $pdo->prepare($sqlQuery);
-  $query->execute();
-
-  return $query->fetchall(PDO::FETCH_ASSOC);
-}
-
-function insertar($dni, $nombre, $apellidos, $direccion, $telefono, 
-                        $email) {
-  // Variables globales en config.inc.
-  $dsn = DB_DSN;
-  $usuario = DB_USER;
-  $contrasena = DB_PASS;
-
-  try {
-    $pdo = new PDO($dsn, $usuario, $contrasena);
-    // Modo de error de PDO.
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  } catch (PDOException $e) {
-    echo "Error de conexión. " . $e->getMessage();
-  } 
-
-  $sqlQuery = "INSERT INTO paciente (dni, nombre, apellidos, direccion, telefono, email)
-   VALUES ('$dni', '$nombre', '$apellidos', '$direccion', '$telefono', '$email')";
-
-  $query = $pdo->prepare($sqlQuery);
-  $query->execute();
-  
-  return $query->fetchall(PDO::FETCH_ASSOC);
-}
-
-function delete($dni) {
-    // Variables globales en config.inc.
     $dsn = DB_DSN;
     $usuario = DB_USER;
     $contrasena = DB_PASS;
   
     try {
-      $pdo = new PDO($dsn, $usuario, $contrasena);
+      $this->pdo = new PDO($dsn, $usuario, $contrasena);
       // Modo de error de PDO.
-      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
       echo "Error de conexión. " . $e->getMessage();
-    }
-  
-    $sqlQuery = "DELETE FROM paciente WHERE dni = $dni";
+    }  
+  }
 
-    $query = $pdo->prepare($sqlQuery);
+  function obtener() {
+    $sqlQuery = "SELECT * FROM paciente";
+    $query = $this->pdo->prepare($sqlQuery);
     $query->execute();
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+  }
+  
+  function insertar($dni, $nombre, $apellidos, $direccion, $telefono, $email) {  
+    $sqlQuery = " INTO paciente (dni, nombre, apellidos, direccion, telefono, email)
+     VALUES (:dni, :nombre, :apellidos, :direccion, :telefono, :email)";
+
+    $query = $this->pdo->prepare($sqlQuery);
+    $query->bindParam(':dni', $dni);
+    $query->bindParam(':nombre', $nombre);
+    $query->bindParam(':apellidos', $apellidos);
+    $query->bindParam(':direccion', $direccion);
+    $query->bindParam(':telefono', $telefono);
+    $query->bindParam(':email', $email);
+    $query->execute();
+    
+    return $query->fetchall(PDO::FETCH_ASSOC);
+  }
+  
+  function delete($dni) {
+      $sqlQuery = "DELETE FROM paciente WHERE dni = :dni";
+
+      $query = $this->pdo->prepare($sqlQuery);
+      $query->bindParam(':dni', $dni);
+      $query->execute();
+  }
+  
+  function actualizar($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, $email) {  
+      $sqlQuery = 
+      "UPDATE paciente SET 
+      dni = :dni, 
+      nombre = :nombre, 
+      apellidos = :apellidos, 
+      direccion = :direccion, 
+      telefono = :telefono, 
+      email = :email
+      WHERE dni = :dni_old";
+  
+      $query = $this->pdo->prepare($sqlQuery);
+      $query->bindParam(':dni', $dni);
+      $query->bindParam(':nombre', $nombre);
+      $query->bindParam(':apellidos', $apellidos);
+      $query->bindParam(':direccion', $direccion);
+      $query->bindParam(':telefono', $telefono);
+      $query->bindParam(':email', $email);
+      $query->bindParam(':dni_old', $dni_old);
+      $query->execute();
+    }
 }
 
-function actualizar($dni_old, $dni, $nombre, $apellidos, $direccion, $telefono, 
-                          $email) {
-    // Variables globales en config.inc.
-    $dsn = DB_DSN;
-    $usuario = DB_USER;
-    $contrasena = DB_PASS;
-  
-    try {
-      $pdo = new PDO($dsn, $usuario, $contrasena);
-      // Modo de error de PDO.
-      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-      echo "Error de conexión. " . $e->getMessage();
-    }
-
-    $sqlQuery = 
-    "UPDATE paciente SET 
-    dni = '$dni', 
-    nombre = '$nombre', 
-    apellidos = '$apellidos', 
-    direccion = '$direccion', 
-    telefono = '$telefono', 
-    email = '$email'
-    WHERE dni = '$dni_old';";
-
-    $query = $pdo->prepare($sqlQuery);
-    $query->execute();
-  }
 ?>

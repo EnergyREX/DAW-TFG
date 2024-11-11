@@ -35,7 +35,7 @@
       <th>Precio</th>
       <th>Opciones</th>
     </tr>
-    <?php mostrar(); ?>
+    <?php $tratamiento = new TratamientoController(); $tratamiento->mostrar(); ?>
   </table>
   </div>
   <script src="./js/tratamientos.js"></script>

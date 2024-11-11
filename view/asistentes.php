@@ -40,7 +40,7 @@
       <th>Disponibilidad</th>
       <th>Opciones</th>
     </tr>
-    <?php mostrar(); ?>
+    <?php $asistente = new AsistenteController(); $asistente->mostrar(); ?>
   </table>
   </div>
   <script src="./js/asistentes.js"></script>

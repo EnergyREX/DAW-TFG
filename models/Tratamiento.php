@@ -2,98 +2,66 @@
 
 require_once('../config/config.inc.php');
 
-function obtener() {
-  // Variables globales en config.inc.
-  $dsn = DB_DSN;
-  $usuario = DB_USER;
-  $contrasena = DB_PASS;
+class Tratamiento {
 
-  try {
-    $pdo = new PDO($dsn, $usuario, $contrasena);
-    // Modo de error de PDO.
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  } catch (PDOException $e) {
-    echo "Error de conexión. " . $e->getMessage();
-  }
+  private $pdo;
 
-  $sqlQuery = "
-    SELECT * from tratamientos;
-";
-  
-  $query = $pdo->prepare($sqlQuery);
-  $query->execute();
-
-  return $query->fetchall(PDO::FETCH_ASSOC);
-}
-
-function insertar($id, $nombre, $precio) {
-  // Variables globales en config.inc.
-  $dsn = DB_DSN;
-  $usuario = DB_USER;
-  $contrasena = DB_PASS;
-
-  try {
-    $pdo = new PDO($dsn, $usuario, $contrasena);
-    // Modo de error de PDO.
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  } catch (PDOException $e) {
-    echo "Error de conexión. " . $e->getMessage();
-  }
-
-  $sqlQuery = "INSERT INTO tratamientos (id, nombre, precio)
-   VALUES (:id, :nombre, :precio)";
-
-  $query = $pdo->prepare($sqlQuery);
-
-  $query->bindParam(':id', $id);
-  $query->bindParam(':nombre', $nombre);
-  $query->bindParam(':precio', $precio);
-
-  $query->execute();
-}
-
-function delete($id) {
-    // Variables globales en config.inc.
+  function __construct() {
     $dsn = DB_DSN;
     $usuario = DB_USER;
     $contrasena = DB_PASS;
   
     try {
-      $pdo = new PDO($dsn, $usuario, $contrasena);
+      $this->pdo = new PDO($dsn, $usuario, $contrasena);
       // Modo de error de PDO.
-      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
       echo "Error de conexión. " . $e->getMessage();
-    }
-  
-    $sqlQuery = "DELETE FROM tratamientos WHERE id = $id";
+    }    
+  }
 
-    $query = $pdo->prepare($sqlQuery);
+  public function obtener() {
+    $sqlQuery = "SELECT * from tratamientos";
+    $query = $this->pdo->prepare($sqlQuery);
     $query->execute();
+    return $query->fetchAll(PDO::FETCH_ASSOC);
 }
-
-function actualizar($id, $nombre, $precio) {
-    // Variables globales en config.inc.
-    $dsn = DB_DSN;
-    $usuario = DB_USER;
-    $contrasena = DB_PASS;
   
-    try {
-      $pdo = new PDO($dsn, $usuario, $contrasena);
-      // Modo de error de PDO.
-      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-      echo "Error de conexión. " . $e->getMessage();
-    }
-
-    $sqlQuery = 
-    "UPDATE tratamientos SET 
-    id = '$id', 
-    nombre = '$nombre', 
-    precio = '$precio' 
-    WHERE id = $id;";
-
-    $query = $pdo->prepare($sqlQuery);
+  function insertar($id, $nombre, $precio) {
+    $sqlQuery = "INSERT INTO tratamientos (id, nombre, precio)
+     VALUES (:id, :nombre, :precio)";
+  
+    $query = $this->pdo->prepare($sqlQuery);
+  
+    $query->bindParam(':id', $id);
+    $query->bindParam(':nombre', $nombre);
+    $query->bindParam(':precio', $precio);
+  
     $query->execute();
   }
+  
+  function delete($id) {  
+      $sqlQuery = "DELETE FROM tratamientos WHERE id = :id";
+  
+      $query = $this->pdo->prepare($sqlQuery);
+      $query->bindParam(':id', $id);
+      $query->execute();
+  }
+  
+  function actualizar($id, $nombre, $precio) {  
+      $sqlQuery = 
+      "UPDATE tratamientos SET 
+      id = :id, 
+      nombre = :nombre, 
+      precio = :precio 
+      WHERE id = :id;";
+  
+      $query = $this->pdo->prepare($sqlQuery);
+      $query->bindParam(':id', $id);
+      $query->bindParam(':nombre', $nombre);
+      $query->bindParam(':precio', $precio);
+      $query->execute();
+    }
+}
+
 ?>

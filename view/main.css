@@ -60,6 +60,7 @@ body {
 
 .table__header th {
     padding-bottom: 0.5rem;
+    height: 3rem;;
 }
 
 .sidebar {

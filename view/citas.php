@@ -41,7 +41,7 @@
       <th>Hora</th>
       <th>Opciones</th>
     </tr>
-    <?php mostrar(); ?>
+    <?php $citas = new CitasController(); $citas->mostrar(); ?>
   </table>
   </div>
   <script src="./js/citas.js"></script>

@@ -30,4 +30,5 @@ Para inicializar el proyecto en su estado actual, deberás de seguir los siguien
 1. Asegúrate de tener instalado PHP y MySQL/MariaDB en tu sistema.
 2. Crea la base de datos ejecutando las queries de la carpeta "BBDD" en PHPMyAdmin o MySQLWorkBench.
 3. En el archivo config.inc.php.example, escribe tus claves de tu BBDD y tu enlace de FontAwesome (Para una conexión adecuada.)
-4. Ejecuta el proyecto en view/index.php.
+4. Modifica el nombre de config.inc.php.example a config.inc.php
+5. Ejecuta el proyecto en view/index.php.
