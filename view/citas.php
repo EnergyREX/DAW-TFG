@@ -30,16 +30,16 @@
   <div class="data__options"><span>Citas</span><input type="text" placeholder="Esto aún no tiene función"><button>Buscar</button> <button>Filtro</button> <button class="insert__btn"><i class="fa-solid fa-plus"></i></button> </div>
   <table class="data__table">
     <tr class="table__header">
-      <th>ID Cita</th>
-      <th>Paciente</th>
-      <th>Nombre</th>
-      <th>Doctor</th>
-      <th>Nombre</th>
-      <th>Estado</th>
-      <th>Motivo</th>
-      <th>Día</th>
-      <th>Hora</th>
-      <th>Opciones</th>
+      <th class="table__title">ID Cita</th>
+      <th class="table__title">Paciente</th>
+      <th class="table__title">Nombre</th>
+      <th class="table__title">Doctor</th>
+      <th class="table__title">Nombre</th>
+      <th class="table__title">Estado</th>
+      <th class="table__title">Motivo</th>
+      <th class="table__title">Día</th>
+      <th class="table__title">Hora</th>
+      <th class="table__opt">Opciones</th>
     </tr>
     <?php $citas = new CitasController(); $citas->mostrar(); ?>
   </table>

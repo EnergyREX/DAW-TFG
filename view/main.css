@@ -1,3 +1,7 @@
+/*! Esta hoja de estilos es temporal por el momento.
+/*! Próximamente se dividirá en distintos archivos para mejor 
+/*! Comprensión y un desarrollo más rápido (y fácil). */
+
 head {
     display: none;
 }
@@ -6,7 +10,7 @@ body {
     display: grid;
     margin: 0;
     grid-template-columns: 20% 80%;
-    background-color: #e4e4e4;
+    background-color: #f1f1f1;
 }
 
 .user__info {
@@ -29,6 +33,7 @@ body {
     font-size: 1.5rem;
     margin-top: 1rem;
     margin-bottom: 0rem;
+    color: #f1f1f1;
 }
 
 .user__role {
@@ -36,7 +41,7 @@ body {
     margin-top: 0.3rem;
     margin-bottom: 0rem;
     font-weight: 300;
-    color: gray;
+    color: #989898;
 }
 
 .user__btn {
@@ -49,7 +54,7 @@ body {
     border: rgb(79, 150, 207) 1px solid;
     color: rgb(79, 150, 207);
     border-radius: 6px;
-    background-color: #e4e4e4;
+    background-color: #40528d;
 }
 
 .user__btn:hover {
@@ -59,11 +64,14 @@ body {
 }
 
 .table__header th {
+    padding: 1rem;
+    min-width: 2rem;
     padding-bottom: 0.5rem;
     height: 3rem;;
 }
 
 .sidebar {
+    margin: 0px;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -71,7 +79,30 @@ body {
     list-style-type: none;
     font-size: 1.5rem;
     font-weight: 400;
-    border-right: #d7d7d7 solid 1px;
+    border-right: #3f3f3f solid 1px;
+    background: rgb(64,82,141);
+    background: linear-gradient(180deg, #40528d 70%, #374671 90%);    height: 100vh;
+}
+
+.piece__badge-confirmed {
+    font-weight: 600;
+    background-color: #38970c;
+    padding: 0.5rem;
+    border-radius: 6px;
+}
+
+.piece__badge-cancelled {
+    font-weight: 600;
+    background-color: red;
+    padding: 0.5rem;
+    border-radius: 6px;
+}
+
+.piece__badge-pending {
+    font-weight: 600;
+    background-color: orangered;
+    padding: 0.5rem;
+    border-radius: 6px;
 }
 
 .link__icon {
@@ -84,17 +115,17 @@ body {
 
 .sidebar__link {
     text-decoration: none;
-    color: #000;
+    color: #BDBDBD;
     padding: 0.6rem;
     border-radius: 6px;
 }
 
 .sidebar__link:hover {
-    background-color: #b5f6f8;
+    background-color: #1d4ed8;
 }
 
 .sidebar__link:visited {
-    color: #000;
+    color: hsl(0, 0%, 74%);
 }
 
 .data {
@@ -105,6 +136,7 @@ body {
     margin-right: 10rem;
     margin-left: 2rem;
     overflow-x: auto;
+    height: 100vh;
 }
 
 .table__data {
@@ -116,6 +148,8 @@ body {
     font-size: 1.125rem;
     border-collapse: collapse;
     width: 100%;
+    background-color: #dcdcdc;
+    border-radius: 6px;
 }
 
 .data__piece {
@@ -124,7 +158,8 @@ body {
     padding: 0px;
     margin: 10px;
     padding: 1rem;
-    border-top: #d7d7d7 solid 1px;
+    border-top: #BDBDBD solid 1px;
+    border-bottom: #BDBDBD solid 1px;
 }
 
 .table__data:hover {
@@ -135,13 +170,16 @@ body {
     background-color: #dfdfdf;
 }
 
+.table__opt {
+    padding: 1rem;
+}
+
 .data__options {
     padding-bottom: 1rem;
     padding-top: 1rem;
     padding-left: 1rem;
-    margin-bottom: 1.5rem;
-    background-color: rgb(215, 255, 255);
-    border-radius: 12px;
+    background-color: #5374bd;
+    border-radius: 12px 12px 0px 0px;
 }
 
 .data__options input {
@@ -166,7 +204,8 @@ body {
 .data__btn {
     text-align: center;
     font-size: 1.5rem;
-    border-top: #e4e4e4 solid 1px;
+    border-top: #BDBDBD solid 1px;
+    border-bottom: #BDBDBD solid 1px;
 }
 
 .data__control {
@@ -177,12 +216,19 @@ body {
 .insert__btn {
     font-weight: 600;
     font-size: 1rem;
-    border: #38970c solid 1px;
-    background-color: rgb(215, 255, 255);
+    border: #22c55e solid 1px;
+    background-color: #5374bd;
+    color: #22c55e;
     border-radius: 6px;
 }
 
-.insert__btn:hover {
+.btn__text {
+    display: none;
+    font-size: 0px;
+}
+
+.insert__btn:hover .btn__text {
+    font-size: 1rem;
     color: green;
     transition: 0.1s;
 }

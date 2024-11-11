@@ -14,7 +14,7 @@ class Doctores {
         try {
           $this->pdo = new PDO($dsn, $usuario, $contrasena);
           // Modo de error de PDO.
-          $$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
           echo "Error de conexión. " . $e->getMessage();
         }

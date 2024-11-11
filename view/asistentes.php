@@ -30,15 +30,15 @@
   <div class="data__options"><span>Asistentes</span><input type="text" placeholder="Esto aún no tiene función"><button>Buscar</button> <button>Filtro</button> <button class="insert__btn"><i class="fa-solid fa-plus"></i></button> </div>
   <table class="data__table">
     <tr class="table__header">
-      <th>DNI</th>
-      <th>Nombre</th>
-      <th>Apellidos</th>
-      <th>Direccion</th>
-      <th>Telefono</th>
-      <th>Email</th>
-      <th>Fecha de Unión</th>
-      <th>Disponibilidad</th>
-      <th>Opciones</th>
+      <th class="table__title">DNI</th>
+      <th class="table__title">Nombre</th>
+      <th class="table__title">Apellidos</th>
+      <th class="table__title">Direccion</th>
+      <th class="table__title">Telefono</th>
+      <th class="table__title">Email</th>
+      <th class="table__title">Fecha de Unión</th>
+      <th class="table__title">Disponibilidad</th>
+      <th class="table__title">Opciones</th>
     </tr>
     <?php $asistente = new AsistenteController(); $asistente->mostrar(); ?>
   </table>

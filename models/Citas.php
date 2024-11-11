@@ -71,7 +71,6 @@ class Citas  {
       WHERE id = :old_id;";
   
       $query = $this->pdo->prepare($sqlQuery);
-      $query->bindParam(':id', $id);
       $query->bindParam(':paciente', $paciente);
       $query->bindParam(':doctor', $doctor);
       $query->bindParam(':motivo', $motivo);

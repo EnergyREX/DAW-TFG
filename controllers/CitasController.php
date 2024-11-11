@@ -18,7 +18,13 @@ class CitasController {
               echo '<td class="data__piece">'.$dato['nombre_paciente'].'</td>';
               echo '<td class="data__piece">'.$dato['doctor'].'</td>';
               echo '<td class="data__piece">'.$dato['nombre_doctor'].'</td>';
-              echo '<td class="data__piece">'.$dato['estado'].'</td>';
+              if ($dato['estado'] == "Confirmada") {
+                echo '<td class="data__piece"><span class="piece__badge-confirmed">'.$dato['estado'].'</span></td>';
+              } else if ($dato['estado'] == "Pendiente") {
+                echo '<td class="data__piece"><span class="piece__badge-pending">'.$dato['estado'].'</span></td>';
+              } else if ($dato['estado'] == "Cancelada") {
+                echo '<td class="data__piece"><span class="piece__badge-cancelled">'.$dato['estado'].'</span></td>';
+              }
               echo '<td class="data__piece">'.$dato['motivo'].'</td>';
               echo '<td class="data__piece">'.$dato['dia'].'</td>';
               echo '<td class="data__piece">'.$dato['hora'].'</td>';
@@ -73,7 +79,7 @@ class CitasController {
     }
 }
 
-$controller = new PacientesController();
+$controller = new CitasController();
 $method = isset($_POST['method']) ? $_POST['method'] : null;
 $controller->procesarMetodo($method);
 ?>

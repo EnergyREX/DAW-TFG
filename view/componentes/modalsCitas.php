@@ -1,5 +1,7 @@
 <?php 
 
+// Lo mejor para la inserción en insert de doctor y paciente, sería utilizar un buscador.
+
 function renderModalInsert() {
     echo ('<div class="modal__insert">
     <div class="modal__content">
