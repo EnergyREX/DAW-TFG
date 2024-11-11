@@ -27,6 +27,7 @@
 
   <div class="data">
     <h1>Presupuestos</h1>
+    <p>Esta parte no está terminada.</p>
   </div>
   <script src="./js/pacientes.js"></script>
 </body>
