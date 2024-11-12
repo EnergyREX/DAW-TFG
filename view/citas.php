@@ -27,7 +27,7 @@
 
   <div class="data">
     <h1>Citas</h1>
-  <div class="data__options"><span>Citas</span><input type="text" placeholder="Esto aún no tiene función"><button>Buscar</button> <button>Filtro</button> <button class="insert__btn"><i class="fa-solid fa-plus"></i></button> </div>
+    <div class="data__options"><span>Citas</span><input type="text" placeholder="Esto aún no tiene función"><button>Buscar</button> <button>Filtro</button> <button class="insert__btn"><i class="fa-solid fa-plus"></i></button> </div>  
   <table class="data__table">
     <tr class="table__header">
       <th class="table__title">ID Cita</th>

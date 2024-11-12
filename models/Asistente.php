@@ -61,13 +61,13 @@ class Asistente {
         $sqlQuery = 
         "UPDATE asistente SET 
         dni = :dni, 
-        nombre = :nombre, 
+        nombre = :nom.bre, 
         apellidos = :apellidos, 
         direccion = :direccion, 
         telefono = :telefono, 
         email = :email,
         contraseña = :passwd
-        WHERE dni = '$dni_old';";
+        WHERE dni = :dni_old;";
     
         $query = $this->pdo->prepare($sqlQuery);
         $query->bindParam(':dni', $dni);
@@ -79,6 +79,7 @@ class Asistente {
         $query->bindParam(':passwd', $passwd);
         $query->bindParam(':fecha_union', $fecha_union);
         $query->bindParam(':disponibilidad', $disponibilidad);
+        $query->bindParam(':dni_old', $dni_old);
         $query->execute();
       } 
   }

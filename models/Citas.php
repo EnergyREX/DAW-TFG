@@ -78,7 +78,6 @@ class Citas  {
       $query->bindParam(':dia', $dia);
       $query->bindParam(':hora', $hora);
       $query->bindParam(':old_id', $old_id);
-
       $query->execute();
     }
 }

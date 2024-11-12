@@ -59,9 +59,30 @@ class AsistenteController {
       }
       
       function eliminar() {
-          $dni = isset($_POST['dni']) ? (int) $_POST['dni'] : null;
+          $dni = isset($_POST['dni']) ? $_POST['dni'] : null;
+
          $this->asistente->delete($dni);
       }
+
+      function procesarMetodo($method) {
+        switch ($method) {
+        case "insert":
+            $this->nuevo();
+            break;
+        case "delete":
+            $this->eliminar();
+            break;
+        case "update":
+             $this->modificar();
+            break;        
+         }
+    }
+
 }
+
+$controller = new AsistenteController();
+$method = isset($_POST['method']) ? $_POST['method'] : null;
+$controller->procesarMetodo($method);
+
 
 ?>

@@ -31,7 +31,7 @@ class Pacientes {
   }
   
   function insertar($dni, $nombre, $apellidos, $direccion, $telefono, $email) {  
-    $sqlQuery = " INTO paciente (dni, nombre, apellidos, direccion, telefono, email)
+    $sqlQuery = "INSERT INTO paciente (dni, nombre, apellidos, direccion, telefono, email)
      VALUES (:dni, :nombre, :apellidos, :direccion, :telefono, :email)";
 
     $query = $this->pdo->prepare($sqlQuery);

@@ -20,7 +20,7 @@
   <body>
   <?php require './componentes/sidebar.php' ?>
 
-   <!-- Recuento de citas, Card -->
+   <main>
    <!-- Recuento de Pacientes totales, Card con Gráfico -->
    <!-- Recuento de Tratamientos, Card -->
    <!-- Próximas citas, Card. -->
@@ -28,7 +28,11 @@
    <div class="data">
     <h1>Este dashboard está en desarrollo. Por ahora, en Index no verás nada.</h1>
     <h2>Revisa las otras pestañas del sidebar.</h2>
+
+    <section class="card__citasStat">
+    </section>
    </div>
+   </main>
     
   <?php require './componentes/footer.php' ?>
   </body>

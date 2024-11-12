@@ -65,6 +65,7 @@ body {
 
 .table__header th {
     padding: 1rem;
+    padding-top: 0.5rem;
     min-width: 2rem;
     padding-bottom: 0.5rem;
     height: 3rem;;
@@ -82,6 +83,10 @@ body {
     border-right: #3f3f3f solid 1px;
     background: rgb(64,82,141);
     background: linear-gradient(180deg, #40528d 70%, #374671 90%);    height: 100vh;
+}
+
+.hamburger {
+    display: none;
 }
 
 .piece__badge-confirmed {
@@ -115,7 +120,7 @@ body {
 
 .sidebar__link {
     text-decoration: none;
-    color: #BDBDBD;
+    color: #fff;
     padding: 0.6rem;
     border-radius: 6px;
 }
@@ -125,7 +130,7 @@ body {
 }
 
 .sidebar__link:visited {
-    color: hsl(0, 0%, 74%);
+    color: #fff
 }
 
 .data {
@@ -149,7 +154,6 @@ body {
     border-collapse: collapse;
     width: 100%;
     background-color: #dcdcdc;
-    border-radius: 6px;
 }
 
 .data__piece {
@@ -163,11 +167,11 @@ body {
 }
 
 .table__data:hover {
-    background-color: #dfdfdf;
+    background-color: #989898;
 }
 
 .table__data:hover .update__btn {
-    background-color: #dfdfdf;
+    background-color: #989898;
 }
 
 .table__opt {
@@ -198,7 +202,7 @@ body {
     font-size: 1.325rem;
 }
 .table__data:hover .delete__btn {
-    background-color: #dfdfdf;
+    background-color: #989898;
 }
 
 .data__btn {

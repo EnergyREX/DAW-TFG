@@ -35,25 +35,25 @@ class Doctores {
             :especialidad, :fecha_union, :disponibilidad)";
   
     $query = $this->pdo->prepare($sqlQuery);
-    $query->execute();
     $query->bindParam(':dni', $dni);
     $query->bindParam(':nombre', $nombre);
     $query->bindParam(':apellidos', $apellidos);
     $query->bindParam(':direccion', $direccion);
     $query->bindParam(':telefono', $telefono);
     $query->bindParam(':email', $email);
-    $query->bindParam(':contraseña', $contrasena);
+    $query->bindParam(':contrasena', $passwd);
     $query->bindParam(':especialidad', $especialidad);
     $query->bindParam(':fecha_union', $fecha_union);
     $query->bindParam(':disponibilidad', $disponibilidad);
 
+    $query->execute();
     return $query->fetchall(PDO::FETCH_ASSOC);
   }
   
   function delete($dni) {    
-      $sqlQuery = "DELETE FROM doctores WHERE dni = $dni";
+      $sqlQuery = "DELETE FROM doctores WHERE dni = :dni";
       $query = $this->pdo->prepare($sqlQuery);
-      $query->bindParam(':id', $id);
+      $query->bindParam(':dni', $dni);
       $query->execute();
   }
   

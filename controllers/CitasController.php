@@ -60,7 +60,7 @@ class CitasController {
       }
       
       function eliminar() {
-          $id = isset($_POST['id']) ? (int) $_POST['id'] : null;
+          $id = isset($_POST['id']) ? $_POST['id'] : null;
           $this->citas->delete($id);
       }
       

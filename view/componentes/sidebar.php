@@ -19,7 +19,7 @@ echo (
       <li class="sidebar__link"><a class="sidebar__link" href="./tratamientos.php"><span class="link__icon"><i class="fa-solid fa-virus"></i></span>Tratamientos</a></li>
       <li class="sidebar__link"><a class="sidebar__link" href="./presupuestos.php"><span class="link__icon"><i class="fa-solid fa-check"></i></span>Presupuestos</a></li>
     </ul>
-  </nav>'
+</nav>'
 )
 
 ?>
