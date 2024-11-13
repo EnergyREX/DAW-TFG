@@ -2,16 +2,12 @@ const citas = document.querySelector('.citas__chart');
 const doctores = document.querySelector('.doctores__chart')
 const pacientes = document.querySelector('.pacientes__chart')
 
-let numCitas;
-let numDoctores;
-let numPacientes;
-
   new Chart(citas, {
     type: 'doughnut',
     data: {
       datasets: [{
         label: 'Número de citas',
-        data: [10],
+        data: [100],
       }]
     },
     options: {
@@ -43,7 +39,7 @@ let numPacientes;
     data: {
       datasets: [{
         label: 'Número de doctores',
-        data: [10],
+        data: [100],
       }]
     },
     options: {
@@ -75,7 +71,7 @@ let numPacientes;
     data: {
       datasets: [{
         label: 'Número de pacientes',
-        data: [10],
+        data: [100],
       }]
     },
     options: {

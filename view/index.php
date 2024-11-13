@@ -1,6 +1,7 @@
 
-<?php require '../config/config.inc.php' ?>
-<?php require '../controllers/IndexPanelController.php' ?>
+<?php require_once '../config/config.inc.php' ?>
+<?php require_once '../controllers/IndexPanelController.php' ?>
+<?php require_once '../controllers/CitasController.php' ?>
 <?php $panel = new IndexPanelController(); ?>
 
 <!DOCTYPE html>
@@ -20,7 +21,7 @@
 </style>
 </head>
   <body>
-  <?php require './componentes/sidebar.php' ?>
+  <?php require_once './componentes/sidebar.php' ?>
 
    <main>
    <!-- Recuento de Pacientes totales, Card con Gráfico -->
@@ -28,39 +29,55 @@
    <!-- Próximas citas, Card. -->
 
    <div class="data">
-    <h1>Este dashboard está en desarrollo. Por ahora, en Index no verás nada.</h1>
-    <h2>Revisa las otras pestañas del sidebar.</h2>
+    <h1>Dashboard</h1>
   
   <div class="stats__cards">  
     <section class="card__citas">
-      <h1>Citas actuales:</h1>
       <canvas class="citas__chart"></canvas>
+      <h1>Citas actuales: <?php echo $panel->citas(); ?></h1>
     </section>
 
     <section class="card__doctores">
-      <h1>Doctores actuales:</h1>
       <canvas class="doctores__chart"></canvas>
+      <h1>Doctores actuales: <?php echo $panel->doctores(); ?></h1>
     </section>
 
     <section class="card__pacientes">
-      <h1>Pacientes actuales:</h1>
       <canvas class="pacientes__chart"></canvas>
+      <h1>Pacientes actuales: <?php echo $panel->pacientes(); ?></h1>
     </section>
-    </div>
+
+    </div>  
+    <section>
+    <div class="data__options"><span>Citas confirmadas</span><input type="text" placeholder="Esto aún no tiene función"><button>Buscar</button> <button>Filtro</button> <button class="insert__btn"><i class="fa-solid fa-plus"></i></button> </div>  
+      <table class="data__table">
+      <tr class="table__header">
+        <th class="table__title">ID Cita</th>
+        <th class="table__title">Paciente</th>
+        <th class="table__title">Nombre</th>
+        <th class="table__title">Doctor</th>
+        <th class="table__title">Nombre</th>
+        <th class="table__title">Estado</th>
+        <th class="table__title">Motivo</th>
+        <th class="table__title">Día</th>
+        <th class="table__title">Hora</th>
+        <th class="table__opt">Opciones</th>
+      </tr>
+    <?php $panel->citasConfirm(); ?>
+  </table>
+
+    </section>
    </main>
     
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="./js//charts.js" type="module">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js//charts.js" type="module">
+    const citas = document.querySelector('.citas__chart');
+    const doctores = document.querySelector('.doctores__chart')
+    const pacientes = document.querySelector('.pacientes__chart')
 
-  const citas = document.querySelector('.citas__chart');
-  const doctores = document.querySelector('.doctores__chart')
-  const pacientes = document.querySelector('.pacientes__chart')
-
-let numCitas = <?php echo $panel->citas(); ?>
-let numDoctores = <?php echo $panel->doctores(); ?>
-let numPacientes = <?php echo $panel->pacientes(); ?>
-  </script>
-
-
+    let numCitas = <?php echo $panel->citas(); ?>
+    let numDoctores = <?php echo $panel->doctores(); ?>
+    let numPacientes = <?php echo $panel->pacientes(); ?>
+    </script>
   </body>
 </html>
