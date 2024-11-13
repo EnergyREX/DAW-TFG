@@ -445,3 +445,45 @@ body {
     grid-row: 1/3;
     padding: 2rem;
 }
+
+.stats__cards {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card__citas {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 15rem;
+    border-radius: 6px;
+    border: black 1px solid;
+    padding: 1rem;
+    background-color: #dcdcdc;
+}
+
+.card__doctores {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 15rem;
+    border-radius: 6px;
+    border: black 1px solid;
+    padding: 1rem;
+    background-color: #dcdcdc;
+    
+}
+.card__pacientes {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 15rem;
+    border-radius: 6px;
+    border: black 1px solid;
+    padding: 1rem;
+    background-color: #dcdcdc;
+    
+}

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Dashboard para un software de gestión de clínicas",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
