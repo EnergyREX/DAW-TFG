@@ -140,8 +140,8 @@ body {
     margin-top: 2rem;
     margin-right: 10rem;
     margin-left: 2rem;
-    overflow-x: auto;
-    height: 100vh;
+    height: 100dvh;
+    overflow-x: scroll;
 }
 
 .table__data {
@@ -238,25 +238,27 @@ body {
 }
 
 .delete__btn {
-    background-color: #e4e4e4;
+    color: red;
+    background-color: #dcdcdc;
     border: 0px;
     font-size: 1.25rem;
 }
 
 .delete__btn:hover {
-    color: red;
+    color: rgb(200, 0, 0);
     transition: 0.2s;
 }
 
 .update__btn {
-    background-color: #e4e4e4;
+    color: blue;
+    background-color: #dcdcdc;
     border: 0px;
     font-size: 1.25rem;
     
 }
 
 .update__btn:hover {
-    color: blue;
+    color: rgb(0, 0, 200);
     transition: 0.2s;
 }
 
@@ -267,7 +269,7 @@ body {
     justify-content: center;
     align-items: center;
 
-    width: 100%;
+    width: 100dvh;
     height: 100dvh;
 
     background-color: rgb(0, 0, 0, 0.7);
@@ -462,6 +464,7 @@ body {
     border: black 1px solid;
     padding: 1rem;
     background-color: #dcdcdc;
+    font-size: 0.895rem;
 }
 
 .card__doctores {
@@ -474,6 +477,7 @@ body {
     border: black 1px solid;
     padding: 1rem;
     background-color: #dcdcdc;
+    font-size: 0.895rem;
     
 }
 .card__pacientes {
@@ -486,5 +490,5 @@ body {
     border: black 1px solid;
     padding: 1rem;
     background-color: #dcdcdc;
-    
+    font-size: 0.895rem;   
 }

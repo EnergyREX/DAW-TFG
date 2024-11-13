@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/energyrex/DAW-TFG#readme",
   "dependencies": {
-    "chartjs": "^0.3.24",
     "jquery": "^3.7.1"
   }
 }

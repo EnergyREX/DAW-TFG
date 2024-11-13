@@ -49,7 +49,7 @@
 
     </div>  
     <section>
-    <div class="data__options"><span>Citas confirmadas</span><input type="text" placeholder="Esto aún no tiene función"><button>Buscar</button> <button>Filtro</button> <button class="insert__btn"><i class="fa-solid fa-plus"></i></button> </div>  
+    <div class="data__options"><span>Citas confirmadas</span><input type="text" placeholder="Esto aún no tiene función"><button>Buscar</button> <button>Filtro</button></div>  
       <table class="data__table">
       <tr class="table__header">
         <th class="table__title">ID Cita</th>
@@ -61,7 +61,6 @@
         <th class="table__title">Motivo</th>
         <th class="table__title">Día</th>
         <th class="table__title">Hora</th>
-        <th class="table__opt">Opciones</th>
       </tr>
     <?php $panel->citasConfirm(); ?>
   </table>
@@ -69,7 +68,6 @@
     </section>
    </main>
     
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./js//charts.js" type="module">
     const citas = document.querySelector('.citas__chart');
     const doctores = document.querySelector('.doctores__chart')
