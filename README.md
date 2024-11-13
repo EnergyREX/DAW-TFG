@@ -23,12 +23,9 @@ El proyecto tratará de un software de gestión de clínicas, donde se tendrán 
 - Se necesita usar una base de datos tipo MySQL / MariaDB.
 - Es recomendable usar XAMPP para el despliegue de la aplicación y su prueba de funcionamiento.
 
-## Inicializar el proyecto.
+## Instalar dependencias del proyecto.
 
-Para inicializar el proyecto en su estado actual, deberás de seguir los siguientes pasos:
-
-1. Asegúrate de tener instalado PHP y MySQL/MariaDB en tu sistema.
-2. Crea la base de datos ejecutando las queries de la carpeta "BBDD" en PHPMyAdmin o MySQLWorkBench.
-3. En el archivo config.inc.php.example, escribe tus claves de tu BBDD y tu enlace de FontAwesome (Para una conexión adecuada.)
-4. Modifica el nombre de config.inc.php.example a config.inc.php
-5. Ejecuta el proyecto en view/index.php.
+0. Para ejecutar y utilizar el proyecto, necesitas tener instalado Node.js, npm y MariaDB, además de PHP para poder ejecutar el proyecto.
+1. Ve hacia la carpeta /view y abre un terminal, ahí, ejecuta el comando "npm i".
+2. Configura el archivo config.inc.php.example como corresponde y renombra el arachivo a config.inc.php.
+3. Corre el proyecto desde index.php.

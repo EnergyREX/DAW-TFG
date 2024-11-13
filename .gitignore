@@ -1,2 +1,6 @@
 # Archivo de config de Php.
 config.inc.php
+
+# Archivos de Node
+node_modules
+package-lock.json
