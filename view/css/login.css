@@ -1,0 +1,106 @@
+.login {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 100dvh;
+}
+
+.login__regis {
+  margin: 0px;
+}
+
+.login__form {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  font-size: 1.225rem
+}
+
+.form__wrapper {
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+  background-color: #f0f0f0;
+  padding: 2rem;
+  box-shadow: 3px 2px 6px 0px rgba(0,0,0,0.4);
+  align-content: center;
+}
+
+.form__wrapper h1 {
+  align-items: center;
+}
+
+.login__input {
+  padding: 0.5rem;
+  margin-bottom: 0.425rem;
+  border-radius: 2px;
+  font-size: 1.225rem;
+  border: none;
+}
+
+.login__btn {
+  font-size: 1.235rem;
+  margin-top: 0.5rem;
+  padding: 0.6rem;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.login__btn:hover {
+  background-color: #0ea5e9;
+  border: none;
+  border: 1px solid #0ea5e9;
+  border-radius: 2px;
+}
+
+.other__login {
+  margin-top: 0.4rem;
+  display: flex;
+  align-content: space-between;
+  justify-content: center;
+}
+
+.login__via--google {
+  background-color: #fff;
+  border-radius: 6px;
+  border: #dcdcdc 1px solid;
+  padding: 0.825rem;
+  font-size: 1.235rem;
+  margin: 0.5rem;
+}
+
+.login__via--x {
+  background-color: #101010;
+  color: #fff;
+  font-size: 1.235rem;
+  border-radius: 6px;
+  border: #dcdcdc 1px solid;
+  padding: 0.825rem;
+  margin: 0.5rem;
+}
+
+.login__via--facebook {
+  background-color: blue;
+  color: #fff;
+  font-size: 1.235rem;
+  border-radius: 6px;
+  border: #dcdcdc 1px solid;
+  padding: 0.8rem;
+  margin: 0.5rem;
+}
+
+.login__via--google:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.login__via--x:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+.login__via--facebook:hover {
+  background-color: rgb(0, 0, 190);
+  cursor: pointer;
+}

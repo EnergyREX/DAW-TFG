@@ -1,7 +1,7 @@
-
-<?php require_once '../config/config.inc.php' ?>
-<?php require_once '../controllers/IndexPanelController.php' ?>
-<?php require_once '../controllers/CitasController.php' ?>
+<?php $root = $_SERVER['DOCUMENT_ROOT']  ?>
+<?php require_once "$root/config/config.inc.php" ?>
+<?php require_once "$root/controllers/IndexPanelController.php" ?>
+<?php ?>
 <?php $panel = new IndexPanelController(); ?>
 
 <!DOCTYPE html>
@@ -12,7 +12,8 @@
   <title>Document</title>
   <link rel="preconnect" href="https://rsms.me/">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/main.css">
   <script src=<?php echo FA6_URL ?> crossorigin="anonymous"></script>
 <style>
   body {
@@ -30,24 +31,7 @@
 
    <div class="data">
     <h1>Dashboard</h1>
-  
-  <div class="stats__cards">  
-    <section class="card__citas">
-      <canvas class="citas__chart"></canvas>
-      <h1>Citas actuales: <?php echo $panel->citas(); ?></h1>
-    </section>
 
-    <section class="card__doctores">
-      <canvas class="doctores__chart"></canvas>
-      <h1>Doctores actuales: <?php echo $panel->doctores(); ?></h1>
-    </section>
-
-    <section class="card__pacientes">
-      <canvas class="pacientes__chart"></canvas>
-      <h1>Pacientes actuales: <?php echo $panel->pacientes(); ?></h1>
-    </section>
-
-    </div>  
     <section>
     <div class="data__options"><span>Citas confirmadas</span><input type="text" placeholder="Esto aún no tiene función"><button>Buscar</button> <button>Filtro</button></div>  
       <table class="data__table">

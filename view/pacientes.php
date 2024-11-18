@@ -7,7 +7,8 @@
   <title>Document</title>
   <link rel="preconnect" href="https://rsms.me/">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/main.css">
   <script src=<?php echo FA6_URL ?> crossorigin="anonymous"></script>
 <style>
   body {

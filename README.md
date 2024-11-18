@@ -11,12 +11,16 @@ El proyecto tratará de un software de gestión de clínicas, donde se tendrán 
 
 ## Algunas cosas por hacer:
 
+- [ ] Dividir el archivo CSS
 - [ ] Ordenar los directorios
 - [ ] Desarrollar index.html
 - [ ] Hacer las consultas SQL seguras
 - [ ] Comentar el código
 - [ ] Hacer documento de Anteproyecto
-- [ ] Modo oscuro
+- [ ] Modo oscuro.
+- [ ] Arreglar las tablas de datos, completar funcionalidades.
+- [ ] Hacer el diseño responsive.
+- [ ] Minificar el CSS
 
 ## Despliegue de la BBDD.
 
