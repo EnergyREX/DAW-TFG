@@ -1,11 +1,14 @@
 <?php require_once '../config/config.inc.php' ?>
-
+<?php 
+  require_once '../controllers/SessionsController.php' ;
+  $sessions = new SessionsController;
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login to our site</title>
+  <title>Register in our site</title>
   <link rel="preconnect" href="https://rsms.me/">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="stylesheet" href="./css/reset.css">
@@ -34,8 +37,10 @@
         <input class="login__input" type="text" name="direccion" placeholder="Avenida 0...">
       </div>
         <input class="login__input" type="email" name="email" placeholder="example@example.com">
-        <input class="login__input" type="tel" name="telefono" placeholder="+00 000 000 000">
-
+        <div>
+          <input class="login__input" type="tel" name="telefono" placeholder="+00 000 000 000">
+          <input class="login__input" placeholder="12345678P" name="dni">
+        </div>
       <div>
         <input class="login__input" type="password" name="passwd" placeholder="Contraseña">
         <input class="login__input" type="password" name="rpasswd" placeholder="Repetir Contraseña" required>
@@ -47,6 +52,7 @@
         <button class="login__via--x"><i class="fa-brands fa-x-twitter"></i></button>
         <button class="login__via--facebook"><i class="fa-brands fa-facebook"></i></button>
       </div>
+      <?php  $sessions->nuevoUsuario() ?>
     </div>
   </form>
   </main>
