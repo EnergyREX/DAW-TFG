@@ -1,7 +1,3 @@
-/*! Esta hoja de estilos es temporal por el momento.
-/*! Próximamente se dividirá en distintos archivos para mejor 
-/*! Comprensión y un desarrollo más rápido (y fácil). */
-
 head {
     display: none;
 }
@@ -479,6 +475,7 @@ body {
     font-size: 0.895rem;
     
 }
+
 .card__pacientes {
     display: flex;
     flex-direction: column;

@@ -11,7 +11,7 @@ El proyecto tratará de un software de gestión de clínicas, donde se tendrán 
 
 ## Algunas cosas por hacer:
 
-- [ ] Dividir el archivo CSS
+- [ ] Dividir el archivo CSS, hacerlo modular.
 - [ ] Ordenar los directorios
 - [ ] Desarrollar index.html
 - [ ] Hacer las consultas SQL seguras

@@ -1,3 +1,8 @@
+<?php 
+if (!isset($SESSION['usuario'])) {
+  header('Location: ./login.php');
+}
+?>
 <?php require_once '../controllers/PacientesController.php' ?>
 <!DOCTYPE html>
 <html lang="es">

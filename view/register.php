@@ -22,7 +22,7 @@
 </head>
 <body>
   <main class="login">
-  <form class="login__form" action="./index.php" method="POST">
+  <form class="login__form" action="./login.php" method="POST">
     <div class="form__wrapper">
       <div class="form__title">
         <h1>Register</h1>
@@ -52,7 +52,7 @@
         <button class="login__via--x"><i class="fa-brands fa-x-twitter"></i></button>
         <button class="login__via--facebook"><i class="fa-brands fa-facebook"></i></button>
       </div>
-      <?php  $sessions->nuevoUsuario() ?>
+      <?php $sessions->register() ?>
     </div>
   </form>
   </main>

@@ -22,7 +22,7 @@
     <div class="form__wrapper">
       <h1>Log in</h1>
 
-      <input class="login__input" type="text" name="usuario" placeholder="Usuario" required>
+      <input class="login__input" type="text" name="email" placeholder="example@example.com" required>
       <input class="login__input" type="password" name="passwd" placeholder="Contraseña"  required>
 
       <p class="login__regis">Not registred? <a href="./register.php">Register now</a></p>

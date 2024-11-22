@@ -1,4 +1,12 @@
+<?php 
+if (!isset($SESSION['usuario'])) {
+  header('Location: login.php');
+  exit;
+}
+?>
+
 <?php require_once '../controllers/TratamientoController.php' ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
