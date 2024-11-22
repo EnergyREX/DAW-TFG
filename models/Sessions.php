@@ -38,32 +38,48 @@ class Sessions {
 }
 
   function iniciarSesion ($email, $contrasena) {
-    $sqlQueryP = "SELECT email, contraseña FROM paciente WHERE email = '$email'";
-    $sqlQueryAdmin = "SELECT email, contraseña FROM admin WHERE email = '$email'";
-    $sqlQueryAsistente = "SELECT email, contraseña FROM asistente WHERE email = '$email'";
-    $sqlQueryDoc = "SELECT email, contraseña FROM doctores WHERE email = '$email'";
+    $sqlQueryP = "SELECT * FROM paciente WHERE email = :email";
+    $sqlQueryAdmin = "SELECT * FROM admin WHERE email = :email";
+    $sqlQueryAsistente = "SELECT * FROM asistente WHERE email = :email";
+    $sqlQueryDoc = "SELECT * FROM doctores WHERE email = :email";
 
     $query = $this->pdo->prepare($sqlQueryP);
+    $query->bindParam(':email', $email);
     $query->execute();
     $paciente = $query->fetchAll(PDO::FETCH_ASSOC);
 
     $query = $this->pdo->prepare($sqlQueryAdmin);
+    $query->bindParam(':email', $email);
     $query->execute();
     $admin = $query->fetchAll(PDO::FETCH_ASSOC);
 
     $query = $this->pdo->prepare($sqlQueryAsistente);
+    $query->bindParam(':email', $email);
     $query->execute();
     $asistente = $query->fetchAll(PDO::FETCH_ASSOC);
 
     $query = $this->pdo->prepare($sqlQueryDoc);
+    $query->bindParam(':email', $email);
     $query->execute();
     $doctor = $query->fetchAll(PDO::FETCH_ASSOC);
     
-    if ($paciente['email'] == $email) {
-      session_start();
-      
+    if (isset($paciente['email'])) {
+      if ($paciente['contraseña'] == password_verify($contrasena, PASSWORD_DEFAULT)) {
+        session_start();
+        $_SESSION['nombre_usuario'] = $paciente['nombre']." ".$paciente['apellidos'];
+      } else if (isset($asistente)) {
+        session_start();
+        $_SESSION['nombre_usuario'] = $asistente['nombre']." ".$asistente['apellidos'];
+      } else if (isset($doctor)) {
+        session_start();
+        $_SESSION['nombre_usuario'] = $doctor['nombre']." ".$doctor['apellidos'];
+        $_SESSION['nombre_usuario'] = $doctor['especialidad'];
+      } else if (isset($admin)) {
+        session_start();
+        $_SESSION['nombre_usuario'] = $admin['nombre']." ".$admin['apellidos'];
+        $_SESSION['nombre_usuario'] = $admin['especialidad'];
+      }
     }
-
   }
 
 }
