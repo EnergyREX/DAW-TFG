@@ -1,8 +1,7 @@
 <?php require_once '../config/config.inc.php' ?>
-<?php 
-  require_once '../controllers/SessionsController.php' ;
-  $sessions = new SessionsController;
- ?>
+<?php require_once '../controllers/PacientesController.php' ?>
+<?php $pacientes = new PacientesController(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +21,7 @@
 </head>
 <body>
   <main class="login">
-  <form class="login__form" action="./login.php" method="POST">
+  <form class="login__form" action="../controllers/UserController.php" method="post">
     <div class="form__wrapper">
       <div class="form__title">
         <h1>Register</h1>
@@ -33,7 +32,6 @@
       </div>
 
       <div>
-        <input class="login__input" type="text" name="usuario" placeholder="Usuario" required>
         <input class="login__input" type="text" name="direccion" placeholder="Avenida 0...">
       </div>
         <input class="login__input" type="email" name="email" placeholder="example@example.com">
@@ -42,9 +40,11 @@
           <input class="login__input" placeholder="12345678P" name="dni">
         </div>
       <div>
-        <input class="login__input" type="password" name="passwd" placeholder="Contraseña">
-        <input class="login__input" type="password" name="rpasswd" placeholder="Repetir Contraseña" required>
+        <input class="login__input" type="password" name="contrasena" placeholder="Contraseña">
+        <input class="login__input" type="password" name="rcontrasena" placeholder="Repetir Contraseña" required>
       </div>
+
+      <input type="hidden" value="register" name="method">
       <p class="login__regis">Registred? <a href="./login.php">Login now</a></p>
     <button class="login__btn" type="submit">Login</button>
       <div class="other__login">
@@ -52,7 +52,6 @@
         <button class="login__via--x"><i class="fa-brands fa-x-twitter"></i></button>
         <button class="login__via--facebook"><i class="fa-brands fa-facebook"></i></button>
       </div>
-      <?php $sessions->register() ?>
     </div>
   </form>
   </main>

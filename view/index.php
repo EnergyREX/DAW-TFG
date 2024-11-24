@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <?php $root = $_SERVER['DOCUMENT_ROOT']  ?>
 <?php require_once "$root/config/config.inc.php" ?>
 <?php require_once "$root/controllers/IndexPanelController.php" ?>
@@ -22,12 +23,9 @@
 </style>
 </head>
   <body>
-  <?php require_once './componentes/sidebar.php' ?>
+  <?php require_once './componentes/sidebar.php'; renderizarSidebar($_SESSION['rol']); ?>
 
    <main>
-   <!-- Recuento de Pacientes totales, Card con Gráfico -->
-   <!-- Recuento de Tratamientos, Card -->
-   <!-- Próximas citas, Card. -->
 
    <div class="data">
     <h1>Dashboard</h1>

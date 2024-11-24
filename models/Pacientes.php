@@ -42,8 +42,6 @@ class Pacientes {
     $query->bindParam(':telefono', $telefono);
     $query->bindParam(':email', $email);
     $query->execute();
-    
-    return $query->fetchall(PDO::FETCH_ASSOC);
   }
   
   function delete($dni) {

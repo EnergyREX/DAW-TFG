@@ -39,8 +39,8 @@ class DoctoresController {
           $fecha_union = isset($_POST['fecha_union']) ? $_POST['fecha_union'] : null;
           $disponibilidad = isset($_POST['disponibilidad']) ? $_POST['disponibilidad'] : null;
           $passwd = isset($_POST['password']) ? $_POST['password'] : null;
-      
-      
+    
+
           $this->doctores->insertar($dni, $nombre, $apellidos, $direccion, $telefono, $email, $passwd, 
               $especialidad, $fecha_union, $disponibilidad);
           

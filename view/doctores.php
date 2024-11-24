@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <?php require_once '../controllers/DoctoresController.php' ?>
 <!DOCTYPE html>
 <html lang="es">

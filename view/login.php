@@ -1,5 +1,5 @@
-<?php require_once '../config/config.inc.php' ?>
-
+<?php require_once '../controllers/PacientesController.php' ?>
+<?php $pacientes = new PacientesController(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,14 +18,15 @@
 </head>
 <body>
   <main class="login">
-  <form class="login__form" action="./index.php" method="POST">
+  <form class="login__form" action="../controllers/UserController.php" method="post">
     <div class="form__wrapper">
       <h1>Log in</h1>
-
       <input class="login__input" type="text" name="email" placeholder="example@example.com" required>
-      <input class="login__input" type="password" name="passwd" placeholder="Contraseña"  required>
+      <input class="login__input" type="password" name="contrasena" placeholder="Contraseña"  required>
 
       <p class="login__regis">Not registred? <a href="./register.php">Register now</a></p>
+
+      <input type="hidden" name="method" value="login">
     <button class="login__btn" type="submit">Login</button>
       <div class="other__login">
 

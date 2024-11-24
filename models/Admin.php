@@ -34,6 +34,9 @@ class Admins {
      VALUES (:dni, :nombre, :apellidos, :direccion, :telefono, :email, :contrasena, 
             :especialidad, :fecha_union, :disponibilidad)";
   
+    
+    $passwd = password_hash($passwd, PASSWORD_DEFAULT);
+
     $query = $this->pdo->prepare($sqlQuery);
     $query->bindParam(':dni', $dni);
     $query->bindParam(':nombre', $nombre);

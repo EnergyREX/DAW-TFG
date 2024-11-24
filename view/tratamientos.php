@@ -1,10 +1,4 @@
-<?php 
-if (!isset($SESSION['usuario'])) {
-  header('Location: login.php');
-  exit;
-}
-?>
-
+<?php session_start() ?>
 <?php require_once '../controllers/TratamientoController.php' ?>
 
 <!DOCTYPE html>
