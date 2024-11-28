@@ -3,7 +3,7 @@
 $DBType = 'mysql'; // Tipo de base de datos.
 $ip = 'localhost'; // Ip del servidor de base de datos
 $port = '3307'; // Puerto del servidor de base de datos (Si no lo requiere, dejar vacío).
-$dbname = 'clinica'; // Nombre de la base de datos.
+$dbname = 'clinic'; // Nombre de la base de datos.
 
 $username = 'root'; // Nombre de usuario de la base de datos.
 $passwd = ''; // Contraseña de la base de datos
