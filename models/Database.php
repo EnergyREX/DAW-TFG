@@ -1,6 +1,10 @@
-<?php
+<?php 
+
 require_once '../../config/config.inc.php';
-abstract class User {
+
+// Main class to interact with the Database.
+
+class Database {
   protected $pdo;
 
   public function __construct() {
@@ -14,9 +18,5 @@ abstract class User {
       echo "Connection error, $e";
     }
   }
-
-  abstract function get();
-  abstract function insert($params);
-  abstract function update($params);
-  abstract function delete($dni);
 }
+?>

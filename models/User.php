@@ -1,28 +1,35 @@
 <?php
 
-class Patient extends User
-{
-  function __construct()
-  {
+class Patient extends Database {
+  function __construct() {
     parent::__construct();
   }
 
-  function get()
-  {
-    $sql = "SELECT * FROM users WHERE role_id = 1";
+  // Gets all users
+  function get() {
+    $sql = "SELECT * FROM users";
     $query = $this->pdo->prepare($sql);
     $query->execute();
     return $query->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function insert($params)
-  {
+  // Gets users by roll
+  function getByRole($params) {
+    $sql = "SELECT * FROM users WHERE role_id = :id";
+    $query = $this->pdo->prepare($sql);
+    $query->bindParam(':id', $params['roleId']);
+    $query->execute();
+
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  function insert($params) {
     $sql = "INSERT INTO `users` (`pfpimg`, `dni`, `name`, `surname`, 
     `address`, `phone_number`, `email`, `passwd`, `specialization`, `join_date`, 
-    `disponibilidad`, `state`, `role_id`) 
+    `availability`, `state`, `role_id`) 
     VALUES (NULL, :dni, :name, :surname, :address, 
-    :phone_number, :email, :passwd, NULL, 
-    :join_date, NULL, 'active', '3');";
+    :phone_number, :email, :passwd, :specialization, 
+    :join_date, :availability, 'active', :role);";
 
     $query = $this->pdo->prepare($sql);
     $query->bindParam(':dni', $params['dni']);
@@ -32,14 +39,17 @@ class Patient extends User
     $query->bindParam(':phone_number', $params['phone_number']);
     $query->bindParam(':email', $params['email']);
     $query->bindParam(':passwd', password_hash($params['passwd'], PASSWORD_BCRYPT));
+    $query->bindParam(':specialization', $params['specialization']);
     $query->bindParam(':join_date', $params['join_date']);
+    $query->bindParam(':availability', $params['availability']);
+    $query->bindParam(':role', $params['role']);
     
+    $query->execute();
   }
 
-  function update($params)
-  {
+  function update($params) {
     $sql =
-      "UPDATE users SET 
+    "UPDATE users SET 
     dni = :dni, 
     name = :name, 
     surname = :surname, 
@@ -47,7 +57,9 @@ class Patient extends User
     phone_number = :phone_number, 
     email = :email,
     passwd = :passwd,
-    state = :state
+    specialization = :specialization,
+    state = :state,
+    role = :role
     WHERE dni = :dni_old";
 
     $query = $this->pdo->prepare($sql);
@@ -63,8 +75,7 @@ class Patient extends User
     return $query->fetch(PDO::FETCH_ASSOC);
   }
 
-  function delete($dni)
-  {
+  function delete($dni) {
     $sql = "DELETE FROM users WHERE dni = :dni";
     $query = $this->pdo->prepare($sql);
     $query->bindParam(':dni', $dni);
