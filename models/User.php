@@ -14,10 +14,10 @@ class Patient extends Database {
   }
 
   // Gets users by roll
-  function getByRole($params) {
+  function getByRole($id) {
     $sql = "SELECT * FROM users WHERE role_id = :id";
     $query = $this->pdo->prepare($sql);
-    $query->bindParam(':id', $params['roleId']);
+    $query->bindParam(':id', $id);
     $query->execute();
 
     return $query->fetchAll(PDO::FETCH_ASSOC);

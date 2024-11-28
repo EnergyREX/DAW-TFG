@@ -27,12 +27,15 @@ function update($params) {
   $sql = "UPDATE medical_records SET
   patient_dni = :patient_dni,
   record_date = :record_date,
-  details = :details";
+  details = :details
+  WHERE id = :id";
 
   $query = $this->pdo->prepare($sql);
   $query->bindParam(':patient_dni', $params['patient_dni']);
   $query->bindParam(':record_date', $params['record_date']);
   $query->bindParam(':details', $params['details']);
+  $query->bindParam(':id', $params['id']);
+  $query->execute();
 }
 
 // Delete a record

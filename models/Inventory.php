@@ -28,12 +28,14 @@ function update($params) {
   item_name = :item_name,
   quantity = :quantity,
   last_updated = :last_updated
-  ";
+  WHERE id = :id";
 
   $query = $this->pdo->prepare($sql);
   $query->bindParam(':item_name', $params['item_name']);
   $query->bindParam(':quantity', $params['quantity']);
   $query->bindParam(':last_updated', $params['last_updated']);
+  $query->bindParam(':id', $params['id']);
+  $query->execute();
 }
 
 // Delete items
