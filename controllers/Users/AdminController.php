@@ -1,6 +1,6 @@
 <?php 
 
-// Class AdminController
+// Class AdminController, manages renders
 
 class AdminController {
   

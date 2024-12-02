@@ -1,8 +1,8 @@
 <?php 
 
-require_once './models/Appointments.php';
+require_once './models/MedicalRecords.php';
 // Class AppointmentsController
-class AppointmentsController {
+class MedicalRecords {
   protected $model;
 
   function __construct() {

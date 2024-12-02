@@ -1,5 +1,6 @@
 <?php 
 
+require_once ('Database.php');
 // Class Treatments
 class Treatments extends Database {
   

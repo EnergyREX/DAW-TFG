@@ -1,0 +1,5 @@
+<?php 
+
+// Page of maquetation 
+
+?>

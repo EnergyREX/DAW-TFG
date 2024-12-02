@@ -1,6 +1,6 @@
 <?php 
 
-require_once './models/Appointments.php';
+require_once '../models/Treatments.php';
 // Class AppointmentsController
 class AppointmentsController {
   protected $model;
@@ -10,7 +10,7 @@ class AppointmentsController {
   }
   // If petition = GET
   function getAppointments() {
-    return $this->model->get();
+    return json_encode($this->model->get());
   }
 
   // If petition = POST
@@ -26,6 +26,13 @@ class AppointmentsController {
   // If petition = DELETE
   function deleteAppointment($params) {
     $this->model->delete($params);
+  }
+
+  function manageRequest($params) {
+    // If request is a GET
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+      $this->getAppointments();
+    }
   }
 
 }
