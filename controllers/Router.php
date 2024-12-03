@@ -16,18 +16,23 @@ class Router {
   // Function run. Runs all routes and searches for a coincidence 
   // between the URI and the stored routes. 
   public function run() {
-    $routes = $this->routes;
     $URI = $_SERVER['REQUEST_URI'];
     $method = $_SERVER['REQUEST_METHOD'];
 
-    foreach ($routes as $route) {
-      if ($route['method'] == $URI && $route['endpoint'] == $URI) {
-        // Llama a la función en el array de objetos.
+    $found = false;
+
+    foreach ($this->routes as $route) {
+      if ($route['method'] === $method && $route['endpoint'] === $URI) {
         call_user_func($route['action']);
+        http_response_code(200);
+        $found = true;
         break;
       }
+    }
+
+    if (!$found) {
       http_response_code(404);
-      echo "ERROR 404";
+      echo "ERROR 404: Página no encontrada.";
     }
   }
 }
