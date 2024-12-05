@@ -6,42 +6,38 @@ class InventoryController {
   protected $model;
 
   function __construct() {
-    $this->model = new Appointments();
+    $this->model = new Inventory();
   }
   // If petition = GET
-  function getAppointments() {
-    return $this->model->get();
+  function getInv() {
+    try {
+      header('Content-Type: application/json');
+      $inventory = $this->model->get();
+      if (!empty($inventory)) {
+        http_response_code(200);
+        echo json_encode($inventory);
+      }
+    } catch (Exception $e) {
+      http_response_code(500);
+      echo json_encode(["error" => "Internal server error.", "message" => $e->getMessage()]);
+    }
   }
 
   // If petition = POST
-  function newAppointment($params) {
+  function newItem($params) {
     $data = $this->model->insert($params);
   }
 
   // If petition = PUT
-  function updateAppointment($params) {
+  function updateItem($params) {
   $this->model->update($params);
   }
 
   // If petition = DELETE
-  function deleteAppointment($params) {
+  function deleteItem($params) {
     $this->model->delete($params);
   }
 
-  function manageRequest($params) {
-    if ($_SERVER['REQUEST_METHOD'] == "POST") {
-      $this->newAppointment($params);
-    } else if ($_SERVER['REQUEST_METHOD'] == "GET") {
-      $this->getAppointments();
-    } else if ($_SERVER['REQUEST_METHOD'] == "PUT") {
-      $this->updateAppointment($params);
-    } else if ($_SERVER['REQUEST_METHOD'] == "DELETE") {
-      $this->deleteAppointment($params);
-    }
-  }
 }
-
-$inventory = new InventoryController();
-$inventory->manageRequest($params);
 
 ?>

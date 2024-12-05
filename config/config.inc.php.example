@@ -1,16 +1,16 @@
 <?php 
 
-$DBType = 'mysql'; // Tipo de base de datos.
-$ip = 'localhost'; // Ip del servidor de base de datos
-$port = '3307'; // Puerto del servidor de base de datos (Si no lo requiere, dejar vacío).
-$dbname = 'clinic'; // Nombre de la base de datos.
+$DBType = 'mysql'; // Database type.
+$ip = 'localhost'; // IP of the DB server
+$port = '3307'; // Server Port.
+$dbname = 'clinic'; // Name of database.
 
-$username = 'root'; // Nombre de usuario de la base de datos.
-$passwd = ''; // Contraseña de la base de datos
+$username = 'root'; // Username of the db.
+$passwd = ''; // Database password.
 
-$kitFontAwesome = ''; // El enlace que consigues al hacer un kit de Font Awesome
+$kitFontAwesome = ''; // Fontawesome URL (to import)
 
-// Definición de variables globales
+// Global variables definition.
 define('DB_DSN', $DBType . ':host=' . $ip . ';port=' . $port . ';dbname=' . $dbname);
 define('DB_USER', $username);
 define('DB_PASS', $passwd);

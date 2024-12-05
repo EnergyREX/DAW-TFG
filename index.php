@@ -2,15 +2,12 @@
 
 require_once ('./controllers/Router.php');
 
+// Create a Router object.
 $router = new Router();
 
-$router->add('/', 'GET', function() {
-  echo "RUTA /";
-});
+// Getting all routes.
+require_once('./routes/routes.php');
 
-$router->add('/dashboard', 'GET', function() {
-  echo "RUTA /dashboard";
-});
-
+// Run all routes
 $router->run();
 ?>

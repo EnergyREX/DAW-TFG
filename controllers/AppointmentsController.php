@@ -3,14 +3,25 @@
 require_once './models/Appointments.php';
 // Class AppointmentsController
 class AppointmentsController {
-  protected $model;
+  private $model;
 
   function __construct() {
     $this->model = new Appointments();
   }
+  
   // If petition = GET
   function getAppointments() {
-    return $this->model->get();
+    try {
+      header('Content-Type: application/json');
+      $appointments = $this->model->get();
+      if (!empty($appointments)) {
+        http_response_code(200);
+        echo json_encode($appointments);
+      }
+    } catch (Exception $e) {
+      http_response_code(500);
+      echo json_encode(["error" => "Internal server error.", "message" => $e->getMessage()]);
+    }
   }
 
   // If petition = POST
