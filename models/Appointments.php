@@ -11,6 +11,14 @@ class Appointments extends Database {
     return $query->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  function getById($params) {
+    $sql = "SELECT * FROM appointments where id = :id";
+    $query = $this->pdo->prepare($sql);
+    $query->bindParam(':id', $param);
+    $query->execute();
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+  }
+
   // Insert (patient, doctor, hour, status)
   function insert($params) {
     $sql = "INSERT INTO `appointments` (patient_dni, doctor_dni, hour, status)

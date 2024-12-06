@@ -4,6 +4,7 @@ $router->add('/404', 'GET', function() {
   require_once('./views/app/errors/404.html');
 });
 
+
 // Gets the root page.
 $router->add('/', 'GET', function() {
   echo "RUTA /";
@@ -29,6 +30,12 @@ $router->add('/appointments/get', 'GET', function() {
   require_once ('./controllers/AppointmentsController.php');
   $appointments = new AppointmentsController();
   $appointments->getAppointments();
+});
+
+$router->add('/appointments/get/:id', 'GET', function($params) {
+  require_once ('./controllers/AppointmentsController.php');
+  $appointments = new AppointmentsController();
+  $appointments->getAppointmentById($params);
 });
 
 
