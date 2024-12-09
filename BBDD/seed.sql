@@ -9,7 +9,8 @@ CREATE TABLE `appointments` (
   `id` int(255) NOT NULL,
   `patient_dni` varchar(9) NOT NULL,
   `doctor_dni` varchar(9) NOT NULL,
-  `hour` date NOT NULL,
+  `hour` time NOT NULL,
+  `date` date NOT NULL,
   `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
