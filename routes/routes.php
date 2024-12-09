@@ -1,7 +1,7 @@
 <?php 
 
 $router->add('/404', 'GET', function() {
-  require_once('./views/app/errors/404.php');
+  require_once('./views/app/errors/404.html');
 });
 
 // Gets the dashboard page.

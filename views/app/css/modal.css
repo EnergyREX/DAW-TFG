@@ -1,0 +1,76 @@
+/* Modal position */
+.modal {
+  display: none;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+
+  position: absolute;
+  z-index: 1;
+  background-color: rgb(0, 0, 0, 0.7);
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+
+  padding: 1rem;
+  background-color: rgba(214, 214, 214, 0.5);
+
+  border-radius: 6px;
+}
+
+.form__input {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input input {
+  padding: 0.3rem;
+  border-radius: 6px;
+  border: none;
+}
+
+.form__btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__btns button {
+  padding: 0.3rem;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  width: 10rem;
+}
+
+/* TODO Change to color variables */
+
+.btns__insert {
+  font-weight: 600;
+  background-color: green;
+  border-radius: 3px;
+  border: none;
+}
+
+.btns__insert:hover {
+  background-color: forestgreen;
+}
+
+.btns__cancel {
+  font-weight: 600;
+  background-color: red;
+  border-radius: 3px;
+  border: none;
+}
+
+.btns__cancel:hover {
+  background-color: brown;
+}

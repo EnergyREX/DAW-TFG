@@ -1,3 +1,4 @@
+<?php require_once('./views/app/components/modalsAppointments.php') ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,12 +8,14 @@
   <link rel="stylesheet" href="./views/app/css/layout.css">
   <link rel="stylesheet" href="./views/app/css/sidebar.css">
   <link rel="stylesheet" href="./views/app/css/dataTable.css">
+  <link rel="stylesheet" href="./views/app/css/modal.css">
   <script class="fa6" src="<?php echo FA6_URL ?>"></script>
   <title>Appointments - My Clinic</title>
   <link rel="preconnect" href="https://rsms.me/">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
 <body>
+<?php renderModalInsert(); ?>
   <aside class="header"></aside>
   <main>
     <a href="/dashboard">Dashboard </a><i class="fa-solid fa-chevron-right"></i><a href="/appointments"> Appointments</a>
@@ -20,6 +23,5 @@
   </main>
   <script src="./views/app/services/appointments.js"></script>
   <script src="./views/app/services/sidebar.js"></script>
-  <script src="./views/app/services/getConfig.js"></script>
 </body>
 </html>
