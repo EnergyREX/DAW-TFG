@@ -1,6 +1,6 @@
 <?php
 
-class Patient extends Database {
+class User extends Database {
   function __construct() {
     parent::__construct();
   }
@@ -71,6 +71,10 @@ class Patient extends Database {
     $query->bindParam(':email', $params['email']);
     $query->bindParam(':passwd', password_hash($params['passwd'], PASSWORD_BCRYPT));
     $query->bindParam(':state', $params['state']);
+    $query->bindParam(':specialization', $params['specialization']);
+    $query->bindParam(':state', $params['state']);
+    $query->bindParam(':role', $params['role']);
+    $query->bindParam(':dni_old', $params['dni_old']);
 
     return $query->fetch(PDO::FETCH_ASSOC);
   }

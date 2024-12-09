@@ -11,8 +11,8 @@ class AdminController {
     $this->model = new User();
   }
 // CollectData
-public function getAdmins() {
-  $data = $this->model->getByRole(4);
+public function get() {
+  $data = $this->model->get();
   try {
     header('Content-Type: application/json');
     http_response_code(200);
@@ -24,7 +24,7 @@ public function getAdmins() {
 }
 
 // New admin
-public function newAdmin($params) {
+public function new($params) {
   $this->model->insert($params);
   try {
     header('Content-Type: application/json');
@@ -37,7 +37,7 @@ public function newAdmin($params) {
 }
 
 // Update Admin
-public function updateAdmin($params) {
+public function update($params) {
   $this->model->update($params);
   try {
     header('Content-Type: application/json');
@@ -50,7 +50,7 @@ public function updateAdmin($params) {
 }
 
 // Delete an Admin
-public function deleteAdmin($dni) {
+public function delete($dni) {
   $this->model->delete($dni);
   try {
     header('Content-Type: application/json');

@@ -1,33 +1,29 @@
 <?php 
 
-require_once './models/User.php';
-// Class AppointmentsController
-class UserController {
-  protected $model;
+// Class AdminController, manages renders
 
-  function __construct() {
+require_once('../../models/User.php');
+
+class DoctorController {
+  private $model;
+
+  function __construct () {
     $this->model = new User();
   }
-  // If petition = GET
-  function getAppointments() {
-    return $this->model->get();
+// CollectData
+public function getDoctors() {
+  $data = $this->model->getByRole(3);
+  try {
+    header('Content-Type: application/json');
+    http_response_code(200);
+    echo json_encode($data);
+  } catch (Exception $e) {
+    http_response_code(500);
+    echo json_encode(["error" => "Internal server error.", "message" => $e->getMessage()]);
   }
-
-  // If petition = POST
-  function newAppointment($params) {
-    $data = $this->model->insert($params);
-  }
-
-  // If petition = PUT
-  function updateAppointment($params) {
-  $this->model->update($params);
-  }
-
-  // If petition = DELETE
-  function deleteAppointment($params) {
-    $this->model->delete($params);
-  }
+}
 
 }
+
 
 ?>
