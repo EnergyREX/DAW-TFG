@@ -27,7 +27,6 @@ class AppointmentsController {
 function getAppointmentById($params) {
     try {
         header('Content-Type: application/json');
-        // Aquí asumimos que $params['id'] tiene el valor que buscas.
         $appointments = $this->model->getById($params['id']); 
         if (!empty($appointments)) {
             http_response_code(200);

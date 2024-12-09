@@ -1,0 +1,4 @@
+.data__table {
+  display: block;
+  overflow-x: scroll;
+}

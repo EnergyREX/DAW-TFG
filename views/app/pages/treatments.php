@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Appointments - My Clinic</title>
+  <title>Treatments - My Clinic</title>
 </head>
 <body>
-  <h1>Appointments</h1>
+  <h1>Treatments</h1>
 </body>
 </html>

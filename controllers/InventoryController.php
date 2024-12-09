@@ -9,7 +9,7 @@ class InventoryController {
     $this->model = new Inventory();
   }
   // If petition = GET
-  function getInv() {
+  function getItems() {
     try {
       header('Content-Type: application/json');
       $inventory = $this->model->get();

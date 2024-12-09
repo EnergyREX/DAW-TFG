@@ -1,40 +1,32 @@
 <?php 
 
-require_once '../models/Treatments.php';
+require_once './models/Treatments.php';
 // Class AppointmentsController
-class AppointmentsController {
+class TreatmentsController {
   protected $model;
 
   function __construct() {
-    $this->model = new Appointments();
+    $this->model = new Treatments();
   }
   // If petition = GET
-  function getAppointments() {
+  function getTreatments() {
     return json_encode($this->model->get());
   }
 
   // If petition = POST
-  function newAppointment($params) {
+  function newTreatment($params) {
     $data = $this->model->insert($params);
   }
 
   // If petition = PUT
-  function updateAppointment($params) {
+  function updateTreatment($params) {
   $this->model->update($params);
   }
 
   // If petition = DELETE
-  function deleteAppointment($params) {
+  function deleteTreatment($params) {
     $this->model->delete($params);
   }
-
-  function manageRequest($params) {
-    // If request is a GET
-    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-      $this->getAppointments();
-    }
-  }
-
 }
 
 ?>

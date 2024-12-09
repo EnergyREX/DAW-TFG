@@ -4,16 +4,14 @@ class Router {
   // Variable routes. Stores objects with an endpoint inside, a method condition and a callable action.
   private $routes = [];
 
-  // Function add. Saves in the $routes array a route. For any type of HTTP method.
+  // Function add. Saves in the $routes array a route. Attends any type of method.
   public function add(string $endpoint, string $method, callable $action) {
-
-    // Save the route details
     $this->routes[] = [
-        'endpoint' => $endpoint,
-        'method' => strtoupper($method),
-        'action' => $action
+      'endpoint' => $endpoint,
+      'method' => strtoupper($method),
+      'action' => $action
     ];
-}
+  }
 
   // Function run. Runs all routes and searches for a coincidence 
   // between the URI and the stored routes. 
