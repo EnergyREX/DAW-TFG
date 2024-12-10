@@ -52,7 +52,7 @@
 }
 
 .sidebar__link a:visited {
-  color: #000;
+  color: none;
 }
 
 .sidebar__collapsible {}
