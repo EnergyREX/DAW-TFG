@@ -22,12 +22,13 @@ class Appointments extends Database {
   // Insert (patient, doctor, hour, status)
   function insert($params) {
     $sql = "INSERT INTO `appointments` (patient_dni, doctor_dni, hour, status)
-    VALUES(:patient_dni, :doctor_dni, :hour, :status)";
+    VALUES(:patient_dni, :doctor_dni, :hour, :date :status)";
 
     $query = $this->pdo->prepare($sql);
     $query->bindParam(':patient_dni', $params['patient_dni']);
     $query->bindParam(':doctor_dni', $params['doctor_dni']);
     $query->bindParam(':hour', $params['hour']);
+    $query->bindParam(':date', $params['date']);
     $query->bindParam(':status', $params['status']);
 
     $query->execute();
