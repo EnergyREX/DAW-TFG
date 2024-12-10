@@ -1,33 +1,25 @@
-# Proyecto de final de grado de DAW
+# Clinic Management System
+## DAW's Final Degree Project
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript)
 ![HTML](https://img.shields.io/badge/HTML-gray?logo=html5)
 ![CSS](https://img.shields.io/badge/CSS-gray?logo=css3)
 ![PHP](https://img.shields.io/badge/PHP-gray?logo=php)
 ![MySQL](https://img.shields.io/badge/MySQL-gray?logo=mysql)
 
-El proyecto tratará de un software de gestión de clínicas, donde se tendrán distintos roles.
+This proyect is a Clinic Management System, with focus on role distinction and their own functional areas.
+Also, this user a built from scratch Router.
 
-## Algunas cosas por hacer:
+## Install project dependencies
 
-- [ ] Dividir el archivo CSS, hacerlo modular.
-- [ ] Ordenar los directorios
-- [ ] Desarrollar index.html
-- [ ] Hacer las consultas SQL seguras
-- [ ] Comentar el código
-- [ ] Hacer documento de Anteproyecto
-- [ ] Modo oscuro.
-- [ ] Arreglar las tablas de datos, completar funcionalidades.
-- [ ] Hacer el diseño responsive.
-- [ ] Minificar el CSS
+In order to run this project, you will need to have installed the following:
+1. Apache web server
+2. MariaDB / MySQL
 
-## Despliegue de la BBDD.
+## Config and run the project.
 
-- Se necesita usar una base de datos tipo MySQL / MariaDB.
-- Es recomendable usar XAMPP para el despliegue de la aplicación y su prueba de funcionamiento.
-
-## Instalar dependencias del proyecto.
-
-0. Para ejecutar y utilizar el proyecto, necesitas tener instalado Node.js, npm y MariaDB, además de PHP para poder ejecutar el proyecto.
-1. Ve hacia la carpeta /view y abre un terminal, ahí, ejecuta el comando "npm i".
-2. Configura el archivo config.inc.php.example como corresponde y renombra el arachivo a config.inc.php.
-3. Corre el proyecto desde index.php.
+1. You should move the whole source code of this project into the htdocs folder of Apache.
+2. Config as it shoud in config.inc.php.example and rename it to config.inc.php.
+3. Ensure that the RewriteCond module (Apache) is enabled.
+4. Use the Database dump in BBDD/seed.sql to create the database.
+5. Use the population.sql in the same directory to populate of data the database. Otherwise, it will not be able to work.
+6. Go to localhost/login to login. There are four roles, Patient, Assistant, Doctor and Admin. The users and passwords are the same as the role. You can also register, but it will only be as a patient.
