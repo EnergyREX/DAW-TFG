@@ -1,5 +1,18 @@
-.data__table {
-  display: block;
-  overflow-x: scroll;
+main {
+  padding: 5rem;
 }
 
+.main__table {
+  display: block;
+  overflow-x: scroll;
+  padding-left: 1rem;
+  width: 100%;
+}
+
+.main__ucontrol {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(100, 165, 255);
+  padding: 1rem;
+  border-radius: 6px;
+}
