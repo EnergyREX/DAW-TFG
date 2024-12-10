@@ -1,6 +1,7 @@
-const dataTable = document.querySelector('.data__table')
-const modalInsertContainer = document.querySelector('.modal')
-const modalUpdateContainer = document.querySelector('.')
+const dataTable = document.querySelector('.main__table')
+const modalInsertContainer = document.querySelector('.modal__insert')
+const modalUpdateContainer = document.querySelector('.modal__update')
+const modalDeleteContainer = document.querySelector('.modal__delete')
 
 const xhttp = new XMLHttpRequest();
 
@@ -19,6 +20,7 @@ xhttp.addEventListener('load', function() {
         <td>Patient DNI</td>
         <td>Doctor DNI</td>
         <td>Hour</td>
+        <td>Date</td>
         <td>Status</td>
         <td>Action</td>
       </tr> 
@@ -33,8 +35,8 @@ xhttp.addEventListener('load', function() {
         <td class="data__cell--date">${data.date}</td>
         <td class="data__cell--status">${data.status}</td>
         <td>
-          <button onclick="{Openinsert()}" type="button"><i class="fa-solid fa-pen-to-square"></i></button> 
-          <button onclick="{Opendelete()}" type="button"><i class="fa-solid fa-trash"></i></button>
+          <button onclick="{OpenUpdate()}" type="button"><i class="fa-solid fa-pen-to-square"></i></button> 
+          <button onclick="{OpenDelete()}" type="button"><i class="fa-solid fa-trash"></i></button>
         </td>
       </tr>`)}
     </tbody>
@@ -47,15 +49,12 @@ xhttp.addEventListener('load', function() {
 
 isOpenModal = false;
 
-document.querySelector('.btns__cancel').addEventListener('click', (event) => {
-  event.preventDefault();
-  Openinsert()
-});
-
-document.querySelector('.close__btn').addEventListener('click', (event) => {
-  event.preventDefault();
-  Openinsert()
-});
+function closeModal() {
+  modalInsertContainer.style.display = "none";
+  modalDeleteContainer.style.display = "none";
+  modalUpdateContainer.style.display = "none";
+  isOpenModal = false;
+}
 
 // Insert data (shows modal)
 function Openinsert() {
@@ -68,11 +67,6 @@ function Openinsert() {
   }
 }
 
-document.querySelector('.btns__insert').addEventListener('click', (event) => {
-  event.preventDefault();
-  
-});
-
 // Update data (shows modal)
 function OpenUpdate() {
   if (!isOpenModal) {
@@ -84,5 +78,36 @@ function OpenUpdate() {
   }
 }
 
-
 // Delete data (shows modal)
+function OpenDelete() {
+  if(!isOpenModal) {
+    modalDeleteContainer.style.display = "flex";
+    isOpenModal = true;
+  } else if (isOpenModal) {
+    modalDeleteContainer.style.display = "none";
+    isOpenModal = false;
+  }
+}
+
+const cancelBtns = document.querySelectorAll('.btns__cancel')
+
+cancelBtns.forEach(cancelBtn => {
+  cancelBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    closeModal()
+  });
+});
+
+const closeBtns = document.querySelectorAll('.close__btn')
+
+closeBtns.forEach(closeBtn => {
+  closeBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    closeModal()
+  });
+});
+
+document.querySelector('.btns__insert').addEventListener('click', (event) => {
+  event.preventDefault();
+  
+});
