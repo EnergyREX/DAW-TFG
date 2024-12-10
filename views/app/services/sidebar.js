@@ -30,7 +30,7 @@ const htmlAdmin =
   <div class="sidebar__footer">
   <img class="footer__userImg" src="./views/public/admin.jpeg">
     <div class="footer__userinfo">
-      <h3 class="userinfo__name">Pedro HDP</h3>
+      <h3 class="userinfo__name">Capitán Perú</h3>
       <h3 class="userinfo__email">email@email.com</h3>
     </div>
   </div>
