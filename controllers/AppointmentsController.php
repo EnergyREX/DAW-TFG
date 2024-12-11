@@ -40,8 +40,22 @@ function getAppointmentById($params) {
 
 
   // If petition = POST
-  function newAppointment($params) {
-    $data = $this->model->insert($params);
+  function newAppointment() {
+    $patient_dni = $_POST['patient_dni'];
+    $doctor_dni = $_POST['doctor_dni'];
+    $hour = $_POST['hour'];
+    $date = $_POST['date'];
+    $status = $_POST['status'];
+
+    $params = [
+      "patient_dni" => $patient_dni,
+      "doctor_dni" => $doctor_dni,
+      "hour" => $hour,
+      "date" => $date,
+      "status" => $status,
+    ];
+
+    $this->model->insert($params);
   }
 
   // If petition = PUT

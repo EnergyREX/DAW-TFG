@@ -5,9 +5,9 @@ require_once ('./controllers/AppointmentsController.php');
 // Appointments routes
 
 // GET the view
-$router->addProtected('/appointments', 'GET', function() {
+$router->add('/appointments', 'GET', function() {
   require_once('./views/app/pages/appointments.php');
-}, 1);
+});
 
 // GET table's data.
 $router->add('/appointments/getAll', 'GET', function() {
