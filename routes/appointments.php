@@ -19,7 +19,7 @@ $router->add('/appointments/getAll', 'GET', function() {
 $router->add('/appointments/new', 'POST', function() {
   $appointments = new AppointmentsController();
   $params = $_POST['params'];
-  $appointments->newAppointment($params);
+  $appointments->newAppointment();
 }); 
 
 // UPDATE an Appointment
