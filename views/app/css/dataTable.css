@@ -1,18 +1,77 @@
 main {
   padding: 5rem;
 }
-
-.main__table {
-  display: block;
-  overflow-x: scroll;
-  padding-left: 1rem;
-  width: 100%;
-}
-
+/* Upper Control Zone */
 .main__ucontrol {
   display: flex;
   justify-content: space-between;
   background-color: rgb(100, 165, 255);
   padding: 1rem;
   border-radius: 6px;
+}
+
+.ucontrol__btns button {
+  background-color: rgb(165, 200, 250);
+  border: none;
+  padding: 0.3rem;
+  width: 32px;
+  border-radius: 16px;
+
+  transition: 0.3s ease;
+}
+
+.ucontrol__btns button:hover {
+  background-color: rgb(120, 180, 255);
+}
+
+.ucontrol__search {
+  border: none;
+  border-radius: 16px;
+  padding: 0.3rem;
+}
+
+/* Table styles */
+
+.main__table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.main__table {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.main__table tr {
+  display: block;
+  justify-content: space-around;
+  padding: 0.1rem;
+  border-top: 1px rgb(110, 110, 110) solid;
+  background-color: #d1d1d1;
+}
+
+.main__table tr:hover {
+  background-color: #a1a1a1;
+}
+
+.main__table tr td {
+  padding: 1rem;
+}
+
+
+/* Bottom control zone */
+
+.main__fcontrol {
+  display: flex;
+  flex-direction: row;
+  margin-top: auto;
+  padding: 1rem;
+  padding-left: 0px;
+
+  justify-content: left;
+  align-items: left;
+
+  padding-right: 0.7rem;
 }
