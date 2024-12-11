@@ -28,19 +28,19 @@
 
     <div class="main__ucontrol">
       <div>
-      <input type="text"><button><i class="fa-solid fa-magnifying-glass"></i></button>
+      <input type="text"><button><i class="ucontrol__search fa-solid fa-magnifying-glass"></i></button>
       </div>
-      <div>
-        <button class="btn__filter"><i class="fa-solid fa-filter"></i></button>
+      <div class="ucontrol__btns">
+        <button class="btns__filter"><i class="fa-solid fa-filter"></i></button>
         <button class="btn__insert"><i class="fa-solid fa-plus"></i></button>
-        <button class="btn__reload"><i class="fa-solid fa-rotate-right"></i></button>
+        <button class="btns__reload"><i class="fa-solid fa-rotate-right"></i></button>
       </div>
     </div>
 
     <table class="main__table"></table>
 
     <div class="main__fcontrol">
-      Showing (ammount)
+      Showing n
     </div>
   </main>
   <script src="./views/app/services/appointments.js"></script>

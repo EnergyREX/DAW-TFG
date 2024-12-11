@@ -14,8 +14,7 @@ xhttp.addEventListener('load', function() {
     console.log(JSON.parse(this.responseText))
     const responseData = JSON.parse(this.responseText)
     tableHTML = `
-    <thead>
-      <tr> 
+      <tr class="table__head"> 
         <td>ID</td>
         <td>Patient DNI</td>
         <td>Doctor DNI</td>
@@ -24,8 +23,6 @@ xhttp.addEventListener('load', function() {
         <td>Status</td>
         <td>Action</td>
       </tr> 
-    </thead>
-    <tbody>
     ${responseData.map(data => `
       <tr>
         <td class="data__cell--id">${data.id}</td>
@@ -35,11 +32,10 @@ xhttp.addEventListener('load', function() {
         <td class="data__cell--date">${data.date}</td>
         <td class="data__cell--status">${data.status}</td>
         <td>
-          <button onclick="{OpenUpdate()}" type="button"><i class="fa-solid fa-pen-to-square"></i></button> 
-          <button onclick="{OpenDelete()}" type="button"><i class="fa-solid fa-trash"></i></button>
+          <button class="action__update" onclick="{OpenUpdate()}" value="${data.id}" type="button"><i class="fa-solid fa-pen-to-square"></i></button> 
+          <button class="action__delete" onclick="{OpenDelete()}" value="${data.id}" type="button"><i class="fa-solid fa-trash"></i></button>
         </td>
       </tr>`)}
-    </tbody>
     `
     dataTable.innerHTML = tableHTML;
   } catch {
@@ -57,7 +53,7 @@ function closeModal() {
 }
 
 // Insert data (shows modal)
-function Openinsert() {
+function OpenInsert() {
   if (!isOpenModal) {
     modalInsertContainer.style.display = "flex";
     isOpenModal = true;
@@ -70,10 +66,10 @@ function Openinsert() {
 // Update data (shows modal)
 function OpenUpdate() {
   if (!isOpenModal) {
-    modalInsertContainer.style.display = "flex";
+    modalUpdateContainer.style.display = "flex";
     isOpenModal = true;
   } else if (isOpenModal) {
-    modalInsertContainer.style.display = "none";
+    modalUpdateContainer.style.display = "none";
     isOpenModal = false;
   }
 }
@@ -107,8 +103,29 @@ closeBtns.forEach(closeBtn => {
   });
 });
 
-document.querySelector('.btns__insert').addEventListener('click', (event) => {
+// This event manages insert events
+document.querySelector('.btns__confirm--insert').addEventListener('click', (event) => {
   event.preventDefault();
+
   
 });
 
+// This event manages update events
+document.querySelector('.btns__confirm--update').addEventListener('click', (event) => {
+  event.preventDefault();
+
+  
+});
+
+// This event manages delete events
+document.querySelector('.btns__confirm--delete').addEventListener('click', (event) => {
+  event.preventDefault();
+  xhttp("POST", "http://localhost/appointments/getAll")
+});
+
+const btnInsert = document.querySelector('.btn__insert')
+
+btnInsert.addEventListener('click', (event) => {
+  event.preventDefault();
+  OpenInsert();
+})

@@ -14,6 +14,11 @@ class Auth extends Database {
     :phone_number, :email, :passwd, NULL, 
     :join_date, NULL, 'active', '1');";
 
+    date_default_timezone_set('Europe/Madrid');
+
+    $params['role'] = 1;
+    $params['join_date'] = date('Y-m-d H:i:s');
+
     $query = $this->pdo->prepare($sql);
     $query->bindParam(':dni', $params['dni']);
     $query->bindParam(':name', $params['name']);
@@ -31,6 +36,9 @@ class Auth extends Database {
 
   function login($params) {
     // Shoulds save a session where stores a json object who is used to auth users. 
+    session_start();
+
+    $_SESSION['username'] = "";
   }
 }
 

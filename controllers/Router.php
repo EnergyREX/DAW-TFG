@@ -31,7 +31,7 @@ class Router {
 
     $found = false;
 
-    foreach ($this->routes as $route) {
+    foreach ($this->roleProtectedRoutes as $route) {
       if ($route['method'] === $method && $route['endpoint'] === $URI) {
         session_start();
         if (!isset($_SESSION['role_id'])) {
@@ -45,10 +45,6 @@ class Router {
           $found = true;
           break;
         }
-      }
-      if (!$found) {
-        http_response_code(404);
-        header('Location: /404');
       }
     }
 
