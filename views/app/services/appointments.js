@@ -14,8 +14,7 @@ xhttp.addEventListener('load', function() {
     console.log(JSON.parse(this.responseText))
     const responseData = JSON.parse(this.responseText)
     tableHTML = `
-    <thead>
-      <tr> 
+      <tr class="table__head"> 
         <td>ID</td>
         <td>Patient DNI</td>
         <td>Doctor DNI</td>
@@ -24,8 +23,6 @@ xhttp.addEventListener('load', function() {
         <td>Status</td>
         <td>Action</td>
       </tr> 
-    </thead>
-    <tbody>
     ${responseData.map(data => `
       <tr>
         <td class="data__cell--id">${data.id}</td>
@@ -35,11 +32,10 @@ xhttp.addEventListener('load', function() {
         <td class="data__cell--date">${data.date}</td>
         <td class="data__cell--status">${data.status}</td>
         <td>
-          <button onclick="{OpenUpdate()}" type="button"><i class="fa-solid fa-pen-to-square"></i></button> 
-          <button onclick="{OpenDelete()}" type="button"><i class="fa-solid fa-trash"></i></button>
+          <button class="action__update" onclick="{OpenUpdate()}" value="${data.id}" type="button"><i class="fa-solid fa-pen-to-square"></i></button> 
+          <button class="action__delete" onclick="{OpenDelete()}" value="${data.id}" type="button"><i class="fa-solid fa-trash"></i></button>
         </td>
       </tr>`)}
-    </tbody>
     `
     dataTable.innerHTML = tableHTML;
   } catch {
@@ -47,68 +43,31 @@ xhttp.addEventListener('load', function() {
   }
 })
 
-isOpenModal = false;
+// Manage the POST (adding a new) appointment.
 
-function closeModal() {
-  modalInsertContainer.style.display = "none";
-  modalDeleteContainer.style.display = "none";
-  modalUpdateContainer.style.display = "none";
-  isOpenModal = false;
+function postAppointment() {
+  const formData = new FormData(document.getElementById('insertForm'));
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.onload = function() {
+    if (xhttp.status === 200) {
+      // El servidor respondió correctamente
+      console.log('Respuesta del servidor: ', xhttp.responseText);
+      // Aquí puedes realizar acciones adicionales, como mostrar un mensaje al usuario
+    } else {
+      // El servidor respondió con un error
+      console.error('Error en la solicitud: ', xhttp.status, xhttp.statusText);
+    }
+  };
+
+  console.log(formData)
+  xhttp.open('POST', "http://localhost/appointments/new");
+  xhttp.send(formData);
 }
 
-// Insert data (shows modal)
-function Openinsert() {
-  if (!isOpenModal) {
-    modalInsertContainer.style.display = "flex";
-    isOpenModal = true;
-  } else if (isOpenModal) {
-    modalInsertContainer.style.display = "none";
-    isOpenModal = false;
-  }
-}
-
-// Update data (shows modal)
-function OpenUpdate() {
-  if (!isOpenModal) {
-    modalInsertContainer.style.display = "flex";
-    isOpenModal = true;
-  } else if (isOpenModal) {
-    modalInsertContainer.style.display = "none";
-    isOpenModal = false;
-  }
-}
-
-// Delete data (shows modal)
-function OpenDelete() {
-  if(!isOpenModal) {
-    modalDeleteContainer.style.display = "flex";
-    isOpenModal = true;
-  } else if (isOpenModal) {
-    modalDeleteContainer.style.display = "none";
-    isOpenModal = false;
-  }
-}
-
-const cancelBtns = document.querySelectorAll('.btns__cancel')
-
-cancelBtns.forEach(cancelBtn => {
-  cancelBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    closeModal()
-  });
-});
-
-const closeBtns = document.querySelectorAll('.close__btn')
-
-closeBtns.forEach(closeBtn => {
-  closeBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    closeModal()
-  });
-});
-
-document.querySelector('.btns__insert').addEventListener('click', (event) => {
+const confirmInsert = document.querySelector('.btns__confirm--insert');
+confirmInsert.addEventListener('click', (event) => {
   event.preventDefault();
-  
-});
+  postAppointment();
+})
 
