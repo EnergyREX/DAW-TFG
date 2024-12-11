@@ -29,6 +29,7 @@
     <div class="main__ucontrol">
       <div>
       <input type="text"><button><i class="ucontrol__search fa-solid fa-magnifying-glass"></i></button>
+      <input type="text"><button><i class="ucontrol__search fa-solid fa-magnifying-glass"></i></button>
       </div>
       <div class="ucontrol__btns">
         <button class="btns__filter"><i class="fa-solid fa-filter"></i></button>
