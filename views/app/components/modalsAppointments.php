@@ -3,7 +3,7 @@
 function renderModalInsert() {
     echo ('
     <div class="modal__insert">
-          <form class="modal__form">
+          <form action="" id="insertForm" method="post" onsubmit="postAppointment(); return false;" class="modal__form">
           <button class="close__btn"><i class="fa-solid fa-x"></i></button>
             <h1>New appointment</h1>
 
@@ -21,7 +21,7 @@ function renderModalInsert() {
               <input name="hour" id="hour" type="time" placeholder="00:00">
 
               <label for="hour">Date</label>
-              <input name="hour" id="date" type="date">
+              <input name="date" id="date" type="date">
             </div>
 
             <div class="form__input">
@@ -36,7 +36,7 @@ function renderModalInsert() {
             </div>
 
             <div class="form__btns">
-            <button class="btns__insert">Insert</button>
+            <button class="btns__confirm--insert">Confirm</button>
             <button class="btns__cancel">Cancel</button>
             </div>
           </form>
@@ -70,7 +70,7 @@ function renderModalUpdate() {
               </div>
 
               <div class="form__btns">
-              <button class="btns__insert">Insert</button>
+              <button class="btns__confirm--update">Confirm</button>
               <button class="btns__cancel">Cancel</button>
               </div>
             </form>
@@ -80,15 +80,13 @@ function renderModalUpdate() {
 function renderModalDelete() {
     echo ('
     <div class="modal__delete">
-            <h1 class="modal__title">Delete this?</h1>
-
             <form class="modal__form">
             <button class="close__btn"><i class="fa-solid fa-x"></i></button>
               <h1>Confirm appointment deletion</h1>
-              <p>You can not revert this changes.</p>
+              <p>You cannot revert this.</p>
 
               <div class="form__btns">
-              <button class="btns__insert">Confirm</button>
+              <button class="btns__confirm--delete">Confirm</button>
               <button class="btns__cancel">Cancel</button>
               </div>
             </form>
