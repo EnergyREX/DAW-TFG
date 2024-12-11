@@ -15,7 +15,6 @@ xhttp.addEventListener('load', function() {
     const responseData = JSON.parse(this.responseText)
     tableHTML = `
       <tr class="table__head"> 
-      <tr class="table__head"> 
         <td>ID</td>
         <td>Patient DNI</td>
         <td>Doctor DNI</td>
@@ -35,8 +34,6 @@ xhttp.addEventListener('load', function() {
         <td>
           <button class="action__update" onclick="{OpenUpdate()}" value="${data.id}" type="button"><i class="fa-solid fa-pen-to-square"></i></button> 
           <button class="action__delete" onclick="{OpenDelete()}" value="${data.id}" type="button"><i class="fa-solid fa-trash"></i></button>
-          <button class="action__update" onclick="{OpenUpdate()}" value="${data.id}" type="button"><i class="fa-solid fa-pen-to-square"></i></button> 
-          <button class="action__delete" onclick="{OpenDelete()}" value="${data.id}" type="button"><i class="fa-solid fa-trash"></i></button>
         </td>
       </tr>`)}
     `
@@ -49,7 +46,8 @@ xhttp.addEventListener('load', function() {
 // Manage the POST (adding a new) appointment.
 
 function postAppointment() {
-  const formData = new FormData(document.getElementById('insertForm'));
+  const form = document.getElementById('insertForm')
+  const formData = new FormData(form);
   const xhttp = new XMLHttpRequest();
 
   xhttp.onload = function() {
@@ -68,28 +66,10 @@ function postAppointment() {
   xhttp.send(formData);
 }
 
+// Adding an event listener when clicked.
 const confirmInsert = document.querySelector('.btns__confirm--insert');
 confirmInsert.addEventListener('click', (event) => {
   event.preventDefault();
   postAppointment();
 })
 
-// This event manages update events
-document.querySelector('.btns__confirm--update').addEventListener('click', (event) => {
-  event.preventDefault();
-
-  
-});
-
-// This event manages delete events
-document.querySelector('.btns__confirm--delete').addEventListener('click', (event) => {
-  event.preventDefault();
-  xhttp("POST", "http://localhost/appointments/getAll")
-});
-
-const btnInsert = document.querySelector('.btn__insert')
-
-btnInsert.addEventListener('click', (event) => {
-  event.preventDefault();
-  OpenInsert();
-})
